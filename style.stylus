@@ -1,41 +1,28 @@
 :root
-  --ui-bg rgba(0,0,0,0.6)
-  --ui-bg2 rgba(178, 178, 178, 0.6)
-  --main-bg #fff
-  --main-text #000
-  --ui-text #fff
-  --ui-focus rgba(68, 68, 68, 0.6)
-  --ui-hover rgba(68, 68, 68, 0.6)
-  --header-base-size 4vw
-  --header-font-size 2vw
-  --news-key-color 217
-  --works-key-color 5
-  --about-key-color 47
-  --team-key-color 20
-  --contacts-key-color 270
+  --base-size 4vw
+  --font-size-large 2vw
+  --font-size-medium 2vw
+  --font-size-small 2vw
+  --accent-color rgba(255,200,0,1)
+  --ui-over-text-color rgba(0,0,0,1)
+  --ui-over-bg rgba(255,255,255,1)
+  --ui-text-color rgba(0,0,0,1)
+  --ui-bg rgba(255,255,255,1)
+  --ui-bg-hover rgba(255,255,255,1)
+  --ui-bg-focus rgba(255,255,255,1)
+  --main-text-color rgba(255,255,255,1)
+  --main-bg rgba(255,255,255,0.2)
+  --bg rgba(0,0,0,1)
+  //--------------^^refactored^^-------------------
 
-@media screen and (max-width 680px)
-  :root
-    --hero-font-size 9vw
-    --hero-sub-font-size 3vw
-    --header-base-size 12vw
-    --header-font-size 3.6vw
+// @media screen and (max-width 680px)
+//   :root
 
 // @media (prefers-color-scheme light)
 //   :root
-//     --ui-bg rgba(0,0,0,0.6)
-//     --ui-bg2 rgba(178, 178, 178, 0.6)
-//     --ui-text #fff
-//     --main-bg #fff
-//     --main-text #000
 
 // @media (prefers-color-scheme dark)
 //   :root
-//     --ui-bg rgba(255,255,255,0.6)
-//     --ui-bg2 rgba(76, 76, 76, 0.6)
-//     --ui-text #1c1c1c
-//     --main-bg #000
-//     --main-text #fff
 
 vendor(prop, args)
   -webkit-{prop} args
@@ -60,7 +47,7 @@ a
   display flex
   align-items center
   justify-content center
-  padding calc(var(--header-base-size) * 1.5) 0 calc(var(--header-base-size) * 0.5)
+  padding calc(var(--base-size) * 1.5) 0 calc(var(--base-size) * 0.5)
   color var(--main-text)
   background-color var(--main-bg)
   position relative
@@ -90,7 +77,7 @@ header
   position fixed
   width 100vw
   top 0
-  height var(--header-base-size)
+  height var(--base-size)
   z-index 2
   background-color var(--ui-bg)
   vendor(backdrop-filter, blur(10px))
@@ -102,8 +89,8 @@ nav
   display flex
   justify-content space-between
   width 100vw
-  height var(--header-base-size)
-  line-height var(--header-base-size)
+  height var(--base-size)
+  line-height var(--base-size)
   width calc(100vw - env(safe-area-inset-left) - env(safe-area-inset-right))
   left env(safe-area-inset-left)
 
@@ -114,7 +101,7 @@ nav
   padding 0
   border none
   text-align center
-  font-size var(--header-font-size)
+  font-size var(--font-size)
   color var(--ui-text)
   background-color transparent
 
@@ -126,8 +113,8 @@ nav
     content ''
     position absolute
     width 1px
-    top calc(var(--header-base-size) * 0.1)
-    height calc(var(--header-base-size) * 0.8)
+    top calc(var(--base-size) * 0.1)
+    height calc(var(--base-size) * 0.8)
     display block
     background-color var(--ui-text)
 
@@ -142,7 +129,7 @@ nav
   position fixed
   width 100vw
   bottom 0
-  height calc(var(--header-base-size) * 4)
+  height calc(var(--base-size) * 4)
   z-index 2
   background-color var(--ui-bg)
   vendor(backdrop-filter, blur(10px))
@@ -156,7 +143,7 @@ nav
   padding 0
   border none
   text-align center
-  font-size var(--header-font-size)
+  font-size var(--font-size)
   color var(--ui-text)
   background-color transparent
   flex-shrink 4
@@ -168,8 +155,8 @@ nav
   padding 0 3vw 0
   display flex
   justify-content space-between
-  height var(--header-base-size)
-  line-height var(--header-base-size)
+  height var(--base-size)
+  line-height var(--base-size)
 
 .bts
   position relative
@@ -185,7 +172,7 @@ nav
   padding 0
   border none
   text-align center
-  font-size var(--header-font-size)
+  font-size var(--font-size)
   color var(--ui-text)
   background-color transparent
 
@@ -197,8 +184,8 @@ nav
     content ''
     position absolute
     width 1px
-    top calc(var(--header-base-size) * 0.1)
-    height calc(var(--header-base-size) * 0.8)
+    top calc(var(--base-size) * 0.1)
+    height calc(var(--base-size) * 0.8)
     display block
     background-color var(--ui-text)
 
@@ -235,7 +222,7 @@ main
 .main-section_article
   box-sizing border-box
   width 70vw
-  padding calc(var(--header-base-size) * 0.4)
+  padding calc(var(--base-size) * 0.4)
 
 .card-container
   display flex
@@ -262,7 +249,7 @@ main
 
     .main-section_article
       width 100vw
-      height calc(100vh - var(--header-base-size))
+      height calc(100vh - var(--base-size))
 
 .main-section_card
   flex 0 0 32vw
@@ -276,7 +263,7 @@ main
   position relative
   color var(--main-text)
   &+&
-    margin-left calc(var(--header-base-size) * 0.4)
+    margin-left calc(var(--base-size) * 0.4)
   &:after
     content ''
     display block
@@ -293,8 +280,8 @@ main
   white-space nowrap
 
 .card_padding-fixer
-  flex 0 0 calc(var(--header-base-size) * 0.4)
-  width calc(var(--header-base-size) * 0.4)
+  flex 0 0 calc(var(--base-size) * 0.4)
+  width calc(var(--base-size) * 0.4)
 
 .image-card
   padding 0
@@ -358,7 +345,7 @@ main
 .profile-card_article
   box-sizing border-box
   display flex
-  padding calc(var(--header-base-size) * 0.2)
+  padding calc(var(--base-size) * 0.2)
 
 .profile-card_avatar
   flex 0 0 30%
@@ -367,7 +354,7 @@ main
   flex-direction column
   align-items center
   justify-content center
-  margin-right calc(var(--header-base-size) * 0.2)
+  margin-right calc(var(--base-size) * 0.2)
   img
     border-radius 50%
     height auto
@@ -417,21 +404,21 @@ main
   .main-section_title
     padding-left env(safe-area-inset-left)
   .card_padding-fixer
-    flex 0 0 calc(var(--header-base-size) * 0.4 + env(safe-area-inset-right))
-    width calc(var(--header-base-size) * 0.4 + env(safe-area-inset-right))
+    flex 0 0 calc(var(--base-size) * 0.4 + env(safe-area-inset-right))
+    width calc(var(--base-size) * 0.4 + env(safe-area-inset-right))
 
 #WORKS,#TEAM
   flex-direction row-reverse
   .main-section_title
     padding-right env(safe-area-inset-right)
   .card-container
-    padding-left calc(var(--header-base-size) * 0.4 + env(safe-area-inset-left))
+    padding-left calc(var(--base-size) * 0.4 + env(safe-area-inset-left))
 
 #CONTACTS
   .main-section_title
     padding-left env(safe-area-inset-left)
   .card-container
-    padding-right calc(var(--header-base-size) * 0.4 + env(safe-area-inset-left))
+    padding-right calc(var(--base-size) * 0.4 + env(safe-area-inset-left))
 
 @css{
   #NEWS .main-section_title{
@@ -509,7 +496,7 @@ footer
 //   color #fff
 //   border none
 //   background-color #000
-//   font-size calc(var(--header-font-size) * 0.9)
+//   font-size calc(var(--font-size) * 0.9)
 //   &:hover
 //     @media screen and (min-width 600px)
 //       background-color var(--ui-hover)
@@ -531,18 +518,18 @@ footer
   text-align center
 
 .floating-button
-  bottom calc(var(--header-base-size) * 0.2)
-  right calc(var(--header-base-size) * 0.2)
-  width calc(var(--header-base-size) * 0.75)
+  bottom calc(var(--base-size) * 0.2)
+  right calc(var(--base-size) * 0.2)
+  width calc(var(--base-size) * 0.75)
   position fixed
   filter drop-shadow(0 8px 5px black)
   animation bounce 1s ease-in-out infinite alternate
   @keyframes bounce
     from
-      bottom calc(var(--header-base-size) * 0.2)
+      bottom calc(var(--base-size) * 0.2)
       filter drop-shadow(0 3px 2px black)
     to
-      bottom calc(var(--header-base-size) * 0.2 + 5px)
+      bottom calc(var(--base-size) * 0.2 + 5px)
       filter drop-shadow(0 8px 6px black)
   img
     width 100%
