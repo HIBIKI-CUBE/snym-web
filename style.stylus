@@ -71,3 +71,8 @@ header
 
 main
   margin-top calc(var(--base-size) * 1.5)
+
+.main_works_hero_image
+  width 100vw
+  height calc(var(--base-size) * 10)
+  object-fit cover
