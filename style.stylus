@@ -44,7 +44,7 @@ html,body
   scroll-behavior smooth
   background-color var(--bg)
   color var(--main-text-color)
-  font-family -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
+  font-family -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
 
 a
   text-decoration: none
@@ -62,6 +62,9 @@ header
   background-color var(--ui-bg)
   vendor(backdrop-filter, blur(10px))
   z-index 1000
+
+.header_logo
+  height 100%
 
 .header_title
   margin 0

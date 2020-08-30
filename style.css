@@ -52,6 +52,9 @@ header {
   -moz-backdrop-filter: blur(10px);
   z-index: 1000;
 }
+.header_logo {
+  height: 100%;
+}
 .header_title {
   margin: 0;
 }
