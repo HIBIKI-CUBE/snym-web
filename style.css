@@ -45,7 +45,7 @@ header {
   justify-content: space-between;
   width: 100vw;
   padding: calc(var(--base-size) / 6) calc(var(--base-size) / 2 + env(safe-area-inset-left)) calc(var(--base-size) / 6) calc(var(--base-size) / 2 + env(safe-area-inset-left));
-  height: var(--base-size);
+  height: calc(var(--base-size) + env(safe-area-inset-top));
   box-sizing: border-box;
   color: var(--ui-text-color);
   background-color: var(--ui-bg);
@@ -73,6 +73,13 @@ header {
 }
 .header_button {
   margin: 0;
+}
+.header_navigation {
+  display: flex;
+  position: fixed;
+}
+.header_navigation_list {
+  display: flex;
 }
 main {
   margin-top: calc(var(--base-size) * 1.5);
