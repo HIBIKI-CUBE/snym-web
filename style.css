@@ -1,6 +1,6 @@
 @charset "utf-8";
 :root {
-  --base-size: 5vh;
+  --base-size: 7vh;
   --font-size-large: 2vw;
   --font-size-medium: 2vw;
   --font-size-small: 2vw;
@@ -22,12 +22,13 @@
 }
 @media screen and (max-width: 680px) {
   :root {
-    --base-size: 8vw;
+    --base-size: 12vw;
   }
 }
 html,
 body {
   margin: 0;
+  width: 100vw;
   scroll-behavior: smooth;
   background-color: var(--bg);
   color: var(--main-text-color);
@@ -42,9 +43,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(100vw - var(--base-size) * 2);
+  width: 100vw;
+  padding: calc(var(--base-size) / 6) calc(var(--base-size) / 2 + env(safe-area-inset-left)) calc(var(--base-size) / 6) calc(var(--base-size) / 2 + env(safe-area-inset-left));
   height: var(--base-size);
-  padding: calc(var(--base-size) / 4) var(--base-size);
+  box-sizing: border-box;
   color: var(--ui-text-color);
   background-color: var(--ui-bg);
   backdrop-filter: blur(10px);
@@ -52,10 +54,21 @@ header {
   -moz-backdrop-filter: blur(10px);
   z-index: 1000;
 }
-.header_logo {
+.header_container {
   height: 100%;
 }
+.header_logo {
+  display: inline-block;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
 .header_title {
+  display: inline-block;
+  height: 100%;
+  line-height: 100%;
+  font-size: 1em;
+  width: auto;
   margin: 0;
 }
 .header_button {
@@ -63,9 +76,21 @@ header {
 }
 main {
   margin-top: calc(var(--base-size) * 1.5);
+  width: 100vw;
+}
+article {
+  padding: 0 10vw;
+  width: 80vw;
+}
+.main_works_article-section_iframe {
+  width: 80vw;
+  height: calc(80vw / 16 * 9);
 }
 .main_works_hero_image {
+  width: 100%;
+  height: calc(100vh - var(--base-size));
+  object-fit: contain;
+}
+footer {
   width: 100vw;
-  height: calc(var(--base-size) * 10);
-  object-fit: cover;
 }
