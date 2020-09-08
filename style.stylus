@@ -39,13 +39,16 @@ vendorarg(prop, arg)
   {prop} -webkit-+arg
   {prop} -moz-+arg
 // ########################################
+.flex-container
+  display flex
+
 html,body
   margin 0
   width 100vw
   scroll-behavior smooth
   background-color var(--bg)
   color var(--main-text-color)
-  font-family -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
+  font-family -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'Ã£Æ’Â¡Ã£â€šÂ¤Ã£Æ’ÂªÃ£â€šÂª', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
 
 a
   text-decoration: none

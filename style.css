@@ -25,6 +25,9 @@
     --base-size: 12vw;
   }
 }
+.flex-container {
+  display: flex;
+}
 html,
 body {
   margin: 0;
