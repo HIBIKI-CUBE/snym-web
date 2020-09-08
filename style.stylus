@@ -45,7 +45,7 @@ html,body
   scroll-behavior smooth
   background-color var(--bg)
   color var(--main-text-color)
-  font-family -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
+  font-family -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
 
 a
   text-decoration: none
@@ -108,6 +108,12 @@ article
   width 100%
   height calc(100vh - var(--base-size))
   object-fit contain
+
+.main_team_avatar
+  width 5vw
+  @media screen and (max-width 680px)
+    width 15vw
+  height auto
 
 footer
   width 100vw
