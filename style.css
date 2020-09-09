@@ -43,7 +43,6 @@ a {
 header {
   position: fixed;
   top: 0;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100vw;
@@ -56,9 +55,6 @@ header {
   -webkit-backdrop-filter: blur(10px);
   -moz-backdrop-filter: blur(10px);
   z-index: 1000;
-}
-.header_container {
-  height: 100%;
 }
 .header_logo {
   display: inline-block;
