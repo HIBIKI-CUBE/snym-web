@@ -1,16 +1,18 @@
 @charset "utf-8";
 :root {
   --base-size: 7vh;
+  --base-size-vw: 1.2vw;
   --font-size-large: 2vw;
   --font-size-medium: 2vw;
   --font-size-small: 2vw;
-  --accent-color: #ffc800;
+  --accent-color: #fc0;
   --ui-over-text-color: #000;
-  --ui-over-bg: #fff;
+  --ui-over-bg: #888;
   --ui-text-color: #fff;
+  --ui-text-hover-color: #000;
   --ui-bg: #ccc;
-  --ui-bg-hover: #fff;
-  --ui-bg-focus: #fff;
+  --ui-bg-hover: #888;
+  --ui-bg-focus: #888;
   --main-text-color: #fff;
   --main-bg: #fff;
   --bg: #000;

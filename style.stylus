@@ -8,15 +8,14 @@
   --font-size-small 2vw
   --accent-color #FC0
   --ui-over-text-color #000
-  --ui-over-bg #FFF
+  --ui-over-bg #888
   --ui-text-color #FFF
+  --ui-text-hover-color #000
   --ui-bg #CCC
   --ui-bg-hover #888
   --ui-bg-focus #888
   @supports(backdrop-filter blur(10px)) or (-webkit-backdrop-filter blur(10px)) or (-moz-backdrop-filter blur(10px))
     --ui-bg rgba(200,200,200,0.5)
-  --ui-bg-hover rgba(255,255,255,1)
-  --ui-bg-focus rgba(255,255,255,1)
   --main-text-color rgba(255,255,255,1)
   --main-bg rgba(255,255,255,1)
   --bg rgba(0,0,0,1)
