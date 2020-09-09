@@ -5,11 +5,11 @@
   --font-size-large 2vw
   --font-size-medium 2vw
   --font-size-small 2vw
-  --accent-color rgba(255,200,0,1)
-  --ui-over-text-color rgba(0,0,0,1)
-  --ui-over-bg rgba(255,255,255,1)
+  --accent-color #FC0
+  --ui-over-text-color #000
+  --ui-over-bg #FFF
   --ui-text-color #FFF
-  --ui-bg #c3c3c3
+  --ui-bg #CCC
   @supports(backdrop-filter blur(10px)) or (-webkit-backdrop-filter blur(10px)) or (-moz-backdrop-filter blur(10px))
     --ui-bg rgba(200,200,200,0.5)
   --ui-bg-hover rgba(255,255,255,1)
