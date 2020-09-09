@@ -68,7 +68,7 @@ header {
   top: 0;
   height: var(--base-size);
   line-height: var(--base-size);
-  font-size: calc(var(--base-size) / 1.5);
+  font-size: calc(var(--base-size) / 2);
   width: auto;
   margin: 0 0 0 0.5em;
 }
@@ -78,31 +78,78 @@ header {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 2000;
+  padding: 0 calc(var(--base-size) / 2 + env(safe-area-inset-right)) 0;
+  z-index: 4000;
   border: none;
+  box-sizing: border-box;
   height: var(--base-size);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: transparent;
   animation-name: derotate_button;
-  animation-duration: 200ms;
+  animation-duration: 500ms;
   animation-timing-function: ease-in-out;
-  animation-delay: 300ms;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
+  animation-delay: 0s;
   animation-fill-mode: both;
 }
 .header_button_svg {
-  height: 100%;
+  height: 60%;
+  transform: translate(0, -2%);
+  z-index: 3000;
   pointer-events: none;
+}
+.header_button_checkbox {
+  display: none;
 }
 .header_navigation {
   display: flex;
+  width: 70vw;
   position: fixed;
   top: 0;
   z-index: 1001;
   right: 0;
   animation-name: fold_navigation;
-  animation-duration: 400ms;
+  animation-duration: 300ms;
   animation-timing-function: cubic-bezier(0.8, 0, 0.7, 0.7);
   animation-fill-mode: both;
+}
+.header_navigation_list_items {
+  display: inline-block;
+  width: 100%;
+  height: var(--base-size);
+  line-height: var(--base-size);
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-align: center;
+  font-size: var(--base-size-vw);
+  color: var(--ui-text-color);
+  background-color: transparent;
+}
+@media screen and (min-width: 600px) {
+  .header_navigation_list_items:hover {
+    background-color: var(--ui-bg-hover);
+  }
+}
+.header_navigation_list_items+.header_navigation_list_items:before {
+  content: '';
+  position: absolute;
+  width: 1px;
+  top: calc(var(--base-size) * 0.1);
+  height: calc(var(--base-size) * 0.8);
+  display: block;
+  background-color: var(--ui-text-color);
+}
+@media screen and (max-width: 600px) {
+  .header_navigation_list_items:first-child {
+    display: none;
+  }
+  .header_navigation_list_items+.header_navigation_list_items:nth-child(2):before {
+    content: none;
+  }
 }
 #header_button:checked ~ .header_navigation {
   animation-name: expand_navigation;
@@ -113,13 +160,12 @@ header {
 }
 #header_button:checked ~ .header_button {
   animation-name: rotate_button;
-  animation-duration: 200ms;
+  animation-duration: 500ms;
   animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
   animation-delay: 0s;
   animation-fill-mode: both;
-}
-.header_navigation_list {
-  display: flex;
 }
 main {
   margin-top: calc(var(--base-size) * 1.5);
@@ -215,66 +261,90 @@ footer {
   }
 }
 @-moz-keyframes rotate_button {
-  from {
-    transform: rotate(0deg);
+  0% {
+    transform: translate(0, 0) rotate(45deg);
   }
-  to {
-    transform: rotate(270deg);
+  50% {
+    transform: translate(0, 0) rotate(270deg);
+  }
+  100% {
+    transform: translate(-70vw, 0) rotate(270deg);
   }
 }
 @-webkit-keyframes rotate_button {
-  from {
-    transform: rotate(0deg);
+  0% {
+    transform: translate(0, 0) rotate(45deg);
   }
-  to {
-    transform: rotate(270deg);
+  50% {
+    transform: translate(0, 0) rotate(270deg);
+  }
+  100% {
+    transform: translate(-70vw, 0) rotate(270deg);
   }
 }
 @-o-keyframes rotate_button {
-  from {
-    transform: rotate(0deg);
+  0% {
+    transform: translate(0, 0) rotate(45deg);
   }
-  to {
-    transform: rotate(270deg);
+  50% {
+    transform: translate(0, 0) rotate(270deg);
+  }
+  100% {
+    transform: translate(-70vw, 0) rotate(270deg);
   }
 }
 @keyframes rotate_button {
-  from {
-    transform: rotate(0deg);
+  0% {
+    transform: translate(0, 0) rotate(45deg);
   }
-  to {
-    transform: rotate(270deg);
+  50% {
+    transform: translate(0, 0) rotate(270deg);
+  }
+  100% {
+    transform: translate(-70vw, 0) rotate(270deg);
   }
 }
 @-moz-keyframes derotate_button {
-  from {
-    transform: rotate(270deg);
+  0% {
+    transform: translate(-70vw, 0) rotate(270deg);
   }
-  to {
-    transform: rotate(0deg);
+  50% {
+    transform: translate(0, 0) rotate(270deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(45deg);
   }
 }
 @-webkit-keyframes derotate_button {
-  from {
-    transform: rotate(270deg);
+  0% {
+    transform: translate(-70vw, 0) rotate(270deg);
   }
-  to {
-    transform: rotate(0deg);
+  50% {
+    transform: translate(0, 0) rotate(270deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(45deg);
   }
 }
 @-o-keyframes derotate_button {
-  from {
-    transform: rotate(270deg);
+  0% {
+    transform: translate(-70vw, 0) rotate(270deg);
   }
-  to {
-    transform: rotate(0deg);
+  50% {
+    transform: translate(0, 0) rotate(270deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(45deg);
   }
 }
 @keyframes derotate_button {
-  from {
-    transform: rotate(270deg);
+  0% {
+    transform: translate(-70vw, 0) rotate(270deg);
   }
-  to {
-    transform: rotate(0deg);
+  50% {
+    transform: translate(0, 0) rotate(270deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(45deg);
   }
 }
