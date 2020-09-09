@@ -46,7 +46,7 @@ header {
   align-items: center;
   justify-content: space-between;
   width: 100vw;
-  padding: calc(var(--base-size) / 6) calc(var(--base-size) / 2 + env(safe-area-inset-left)) calc(var(--base-size) / 6) calc(var(--base-size) / 2 + env(safe-area-inset-left));
+  padding: calc(var(--base-size) / 6) calc(var(--base-size) / 2 + env(safe-area-inset-left)) calc(var(--base-size) / 6) calc(var(--base-size) / 2 + env(safe-area-inset-right));
   height: calc(var(--base-size) + env(safe-area-inset-top));
   box-sizing: border-box;
   color: var(--ui-text-color);
