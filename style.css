@@ -64,18 +64,59 @@ header {
 }
 .header_title {
   display: inline-block;
-  height: 100%;
-  line-height: 100%;
-  font-size: 1em;
+  position: absolute;
+  top: 0;
+  height: var(--base-size);
+  line-height: var(--base-size);
+  font-size: calc(var(--base-size) / 1.5);
   width: auto;
-  margin: 0;
+  margin: 0 0 0 0.5em;
 }
 .header_button {
   margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2000;
+  border: none;
+  height: var(--base-size);
+  display: inline-block;
+  background-color: transparent;
+  animation-name: derotate_button;
+  animation-duration: 200ms;
+  animation-timing-function: ease-in-out;
+  animation-delay: 300ms;
+  animation-fill-mode: both;
+}
+.header_button_svg {
+  height: 100%;
+  pointer-events: none;
 }
 .header_navigation {
   display: flex;
   position: fixed;
+  top: 0;
+  z-index: 1001;
+  right: 0;
+  animation-name: fold_navigation;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.8, 0, 0.7, 0.7);
+  animation-fill-mode: both;
+}
+#header_button:checked ~ .header_navigation {
+  animation-name: expand_navigation;
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+  animation-delay: 200ms;
+  animation-fill-mode: both;
+}
+#header_button:checked ~ .header_button {
+  animation-name: rotate_button;
+  animation-duration: 200ms;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-fill-mode: both;
 }
 .header_navigation_list {
   display: flex;
@@ -108,4 +149,132 @@ article {
 }
 footer {
   width: 100vw;
+}
+@-moz-keyframes fold_navigation {
+  from {
+    transform: translate(0%, 0%);
+  }
+  to {
+    transform: translate(100%, 0%);
+  }
+}
+@-webkit-keyframes fold_navigation {
+  from {
+    transform: translate(0%, 0%);
+  }
+  to {
+    transform: translate(100%, 0%);
+  }
+}
+@-o-keyframes fold_navigation {
+  from {
+    transform: translate(0%, 0%);
+  }
+  to {
+    transform: translate(100%, 0%);
+  }
+}
+@keyframes fold_navigation {
+  from {
+    transform: translate(0%, 0%);
+  }
+  to {
+    transform: translate(100%, 0%);
+  }
+}
+@-moz-keyframes expand_navigation {
+  from {
+    transform: translate(100%, 0%);
+  }
+  to {
+    transform: translate(0%, 0%);
+  }
+}
+@-webkit-keyframes expand_navigation {
+  from {
+    transform: translate(100%, 0%);
+  }
+  to {
+    transform: translate(0%, 0%);
+  }
+}
+@-o-keyframes expand_navigation {
+  from {
+    transform: translate(100%, 0%);
+  }
+  to {
+    transform: translate(0%, 0%);
+  }
+}
+@keyframes expand_navigation {
+  from {
+    transform: translate(100%, 0%);
+  }
+  to {
+    transform: translate(0%, 0%);
+  }
+}
+@-moz-keyframes rotate_button {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+@-webkit-keyframes rotate_button {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+@-o-keyframes rotate_button {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+@keyframes rotate_button {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+@-moz-keyframes derotate_button {
+  from {
+    transform: rotate(270deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes derotate_button {
+  from {
+    transform: rotate(270deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+@-o-keyframes derotate_button {
+  from {
+    transform: rotate(270deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+@keyframes derotate_button {
+  from {
+    transform: rotate(270deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }
