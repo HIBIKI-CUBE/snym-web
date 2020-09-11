@@ -187,14 +187,14 @@ header {
     flex: 0 0 100vw;
   }
 }
-#header_button:checked ~ .header_navigation {
+#header_button_checkbox:checked ~ .header_navigation {
   animation-name: expand_navigation;
   animation-duration: 300ms;
   animation-timing-function: ease-in-out;
   animation-delay: 200ms;
   animation-fill-mode: both;
 }
-#header_button:checked ~ .header_button {
+#header_button_checkbox:checked ~ .header_button {
   animation-name: expand_button;
   animation-duration: 500ms;
   animation-timing-function: ease-in-out;

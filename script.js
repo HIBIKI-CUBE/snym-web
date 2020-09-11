@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function smooth_scroll(time, start_time, origin, destination) {
     if (time == start_time) {
-      document.getElementById('header_button').checked = false;
+      document.getElementById('header_button_checkbox').checked = false;
       requestAnimationFrame(time => smooth_scroll(time, start_time, origin, destination));
       return;
     }
@@ -32,6 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   setTimeout(() => {
-    document.getElementById('header_button').checked = false;
+    document.getElementById('header_button_checkbox').checked = false;
   }, 2000);
 }, {once: true, passive: true});
