@@ -20,7 +20,7 @@
   --main-bg rgba(255,255,255,1)
   --bg rgba(0,0,0,1)
 
-@media screen and (max-width 680px)
+@media screen and (max-width 600px)
   :root
     --base-size 12vw
 
@@ -200,7 +200,7 @@ article
 
 .main_team_avatar
   width 5vw
-  @media screen and (max-width 680px)
+  @media screen and (max-width 600px)
     width 15vw
   height auto
 

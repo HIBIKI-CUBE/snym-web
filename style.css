@@ -22,7 +22,7 @@
     --ui-bg: rgba(200,200,200,0.5);
   }
 }
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 600px) {
   :root {
     --base-size: 12vw;
   }
@@ -211,7 +211,7 @@ article {
   width: 5vw;
   height: auto;
 }
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 600px) {
   .main_team_avatar {
     width: 15vw;
   }
