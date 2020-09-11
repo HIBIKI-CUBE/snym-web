@@ -208,8 +208,9 @@ article
   height calc(100vh - var(--base-size))
   object-fit contain
 
-.main_team_avatar
+.main_member_avatar
   width 5vw
+  border-radius 50%
   @media screen and (max-width 600px)
     width 15vw
   height auto
