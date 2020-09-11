@@ -133,8 +133,10 @@ header
 .header_navigation_list_items
   display block
   width 100%
+  background-color transparent
   @media screen and (max-width 600px)
     flex 0 0 50vw
+    background-color var(--ui-over-bg)
   height var(--base-size)
   line-height var(--base-size)
   margin 0
@@ -142,7 +144,6 @@ header
   border none
   text-align center
   color var(--ui-text-color)
-  background-color var(--ui-over-bg)
 
   &:hover
     @media screen and (min-width 600px)
