@@ -172,6 +172,7 @@ header
 
 .header_navigation_title
   margin 0
+  line-height calc(var(--base-size) / 2)
   @media screen and (max-width 600px)
     flex 0 0 100vw
 

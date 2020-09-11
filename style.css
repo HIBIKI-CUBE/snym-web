@@ -181,6 +181,7 @@ header {
 }
 .header_navigation_title {
   margin: 0;
+  line-height: calc(var(--base-size) / 2);
 }
 @media screen and (max-width: 600px) {
   .header_navigation_title {
