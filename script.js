@@ -31,7 +31,5 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(time => smooth_scroll(time, start_time, origin, destination));
   }
 
-  setTimeout(() => {
-    document.getElementById('header_button_checkbox').checked = false;
-  }, 2000);
+  setTimeout(() => document.getElementById('header_button_checkbox').checked = false, 2000);
 }, {once: true, passive: true});
