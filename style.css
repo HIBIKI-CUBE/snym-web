@@ -2,6 +2,7 @@
 :root {
   --base-size: 7vh;
   --base-size-vw: 1.2vw;
+  --article-width: 70vw;
   --font-size-large: 2vw;
   --font-size-medium: 2vw;
   --font-size-small: 2vw;
@@ -29,6 +30,23 @@
 }
 .flex-container {
   display: flex;
+  flex-wrap: nowrap;
+}
+@media screen and (max-width: 600px) {
+  .flex-container {
+    flex-wrap: wrap;
+  }
+}
+.wrap-on_pc {
+  flex-wrap: wrap;
+}
+.flex_half-on_pc {
+  flex: 0 0 50%;
+}
+@media screen and (max-width: 600px) {
+  .flex_half-on_pc {
+    flex: 0 0 100%;
+  }
 }
 @media screen and (min-width: 600px) {
   .pc-hide {
@@ -196,12 +214,13 @@ main {
   width: 100vw;
 }
 article {
-  padding: 0 10vw;
-  width: 80vw;
+  padding: 0 calc((100vw - var(--article-width)) / 2);
+  width: var(--article-width);
+}
 }
 .main_works_article-section_iframe {
-  width: 80vw;
-  height: calc(80vw / 16 * 9);
+  width: var(--article-width);
+  height: calc(var(--article-width) / 16 * 9);
 }
 .main_works_hero_image {
   width: 100%;
