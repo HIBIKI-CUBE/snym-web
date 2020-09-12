@@ -2,7 +2,7 @@
 :root {
   --base-size: 7vh;
   --base-size-vw: 1.2vw;
-  --article-width: 70vw;
+  --article-width: 60vw;
   --font-size-large: 2vw;
   --font-size-medium: 2vw;
   --font-size-small: 2vw;
@@ -17,6 +17,11 @@
   --main-text-color: #fff;
   --main-bg: #fff;
   --bg: #000;
+}
+@media screen and (max-width: 600px) {
+  :root {
+    --article-width: 85vw;
+  }
 }
 @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) or (-moz-backdrop-filter: blur(10px)) {
   :root {
