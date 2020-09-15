@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', () => {
         let target = document.getElementById(buttons[i].dataset.target);
-        requestAnimationFrame(time => smooth_scroll(time, time, window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0, target.getBoundingClientRect().top - parseFloat(getComputedStyle(target).marginTop) - header.clientHeight));
+        requestAnimationFrame(time => smooth_scroll(time, time, window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0, buttons[i].dataset.target == "top" ? 0 : target.getBoundingClientRect().top - parseFloat(getComputedStyle(target).marginTop) - header.clientHeight));
       }, {passive: true});
     }
   }
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     scrollTo({
-      top: origin + destination * easeInOutCubic((time - start_time) / scroll_duration),
+      top: origin + (destination == 0 ? origin * -1 : destination) * easeInOutCubic((time - start_time) / scroll_duration),
       behavior: 'smooth'
     });
     if ((time - start_time) > scroll_duration) return;
