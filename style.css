@@ -10,6 +10,7 @@
   --accent-color: #fc0;
   --ui-over-text-color: #000;
   --ui-over-bg: #888;
+  --ui-over-bg-hover: #555;
   --ui-text-color: #fff;
   --ui-text-hover-color: #000;
   --ui-bg: #ccc;
@@ -109,7 +110,7 @@ header {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
+  background-color: var(--ui-over-bg);
 }
 @media screen and (min-width: 600px) {
   .header_button {
@@ -118,6 +119,25 @@ header {
     animation-timing-function: ease-out;
     animation-delay: 0ms;
     animation-fill-mode: both;
+  }
+}
+.header_button:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: calc(var(--base-size) * -1);
+  border-style: solid;
+  border-width: var(--base-size) calc(var(--base-size) / 2) 0px calc(var(--base-size) / 2);
+  border-color: transparent;
+  border-right-color: var(--ui-over-bg);
+}
+@media screen and (min-width: 600px) {
+  .header_button:hover {
+    background-color: var(--ui-over-bg-hover);
+  }
+  .header_button:hover:before {
+    border-right-color: var(--ui-over-bg-hover);
   }
 }
 .header_button_svg {
@@ -142,6 +162,7 @@ header {
   position: fixed;
   top: 0;
   right: 0;
+  background-color: transparent;
   animation-name: fold_navigation;
   animation-duration: 200ms;
   animation-timing-function: ease-out;
@@ -158,7 +179,7 @@ header {
 .header_navigation_list_items {
   display: block;
   width: 100%;
-  background-color: transparent;
+  background-color: var(--ui-over-bg);
   height: var(--base-size);
   line-height: var(--base-size);
   margin: 0;
@@ -170,12 +191,11 @@ header {
 @media screen and (max-width: 600px) {
   .header_navigation_list_items {
     flex: 0 0 50vw;
-    background-color: var(--ui-over-bg);
   }
 }
 @media screen and (min-width: 600px) {
   .header_navigation_list_items:hover {
-    background-color: var(--ui-bg-hover);
+    background-color: var(--ui-over-bg-hover);
   }
 }
 @media screen and (min-width: 600px) {
