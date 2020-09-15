@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   {
     const buttons = document.querySelectorAll('[data-target]');
     const header = document.getElementById('header');
-    let is_scrolling = false;
     for (let i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', () => {
         let target = document.getElementById(buttons[i].dataset.target);
