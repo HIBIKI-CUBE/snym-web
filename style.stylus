@@ -190,12 +190,12 @@ header
   animation-name expand_navigation
   animation-duration 200ms
   animation-timing-function ease-out
-  animation-delay 200ms
+  animation-delay 150ms
   animation-fill-mode both
 
 #header_button_checkbox:checked ~ .header_button > svg
   animation-name rotate_svg
-  animation-duration 200ms
+  animation-duration 150ms
   animation-timing-function ease-in
   animation-delay 0ms
   animation-fill-mode both
@@ -205,7 +205,7 @@ header
     animation-name expand_button
     animation-duration 200ms
     animation-timing-function ease-out
-    animation-delay 200ms
+    animation-delay 150ms
     animation-fill-mode both
 
 main
