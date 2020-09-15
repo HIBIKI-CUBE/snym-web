@@ -267,6 +267,10 @@ article {
   padding: 0 calc((100vw - var(--article-width)) / 2);
   width: var(--article-width);
 }
+.break-scope {
+  display: inline-block;
+  white-space: nowrap;
+}
 .main_works_article_title_ruby {
   text-align: center;
 }
