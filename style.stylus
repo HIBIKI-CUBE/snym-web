@@ -16,7 +16,7 @@
   --ui-over-bg-hover #555
   --ui-text-color #FFF
   --ui-text-hover-color #000
-  --ui-bg #CCC
+  --ui-bg #646464
   --ui-bg-hover #888
   --ui-bg-focus #888
   @supports(backdrop-filter blur(10px)) or (-webkit-backdrop-filter blur(10px)) or (-moz-backdrop-filter blur(10px))
