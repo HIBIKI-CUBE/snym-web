@@ -3,6 +3,7 @@
   --base-size: 7vh;
   --base-size-vw: 1.2vw;
   --article-width: 60vw;
+  --navigation-width: 70vw;
   --font-size-large: 2vw;
   --font-size-medium: 2vw;
   --font-size-small: 2vw;
@@ -109,32 +110,41 @@ header {
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  animation-name: fold_button;
-  animation-duration: 500ms;
-  animation-timing-function: ease-in-out;
-  animation-delay: 0ms;
-  animation-fill-mode: both;
+}
+@media screen and (min-width: 600px) {
+  .header_button {
+    animation-name: fold_button;
+    animation-duration: 200ms;
+    animation-timing-function: ease-out;
+    animation-delay: 0ms;
+    animation-fill-mode: both;
+  }
 }
 .header_button_svg {
   height: 60%;
   transform: translate(0, -2%);
   z-index: 5000;
   pointer-events: none;
+  animation-name: derotate_svg;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-delay: 200ms;
+  animation-fill-mode: both;
 }
 .header_button_checkbox {
   display: none;
 }
 .header_navigation {
   display: flex;
-  width: 70vw;
+  width: var(--navigation-width);
   z-index: 3000;
   font-size: var(--base-size-vw);
   position: fixed;
   top: 0;
   right: 0;
   animation-name: fold_navigation;
-  animation-duration: 300ms;
-  animation-timing-function: ease-in-out;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
   animation-fill-mode: both;
 }
 @media screen and (max-width: 600px) {
@@ -196,17 +206,26 @@ header {
 }
 #header_button_checkbox:checked ~ .header_navigation {
   animation-name: expand_navigation;
-  animation-duration: 300ms;
-  animation-timing-function: ease-in-out;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
   animation-delay: 200ms;
   animation-fill-mode: both;
 }
-#header_button_checkbox:checked ~ .header_button {
-  animation-name: expand_button;
-  animation-duration: 500ms;
-  animation-timing-function: ease-in-out;
+#header_button_checkbox:checked ~ .header_button > svg {
+  animation-name: rotate_svg;
+  animation-duration: 200ms;
+  animation-timing-function: ease-in;
   animation-delay: 0ms;
   animation-fill-mode: both;
+}
+@media screen and (min-width: 600px) {
+  #header_button_checkbox:checked ~ .header_button {
+    animation-name: expand_button;
+    animation-duration: 200ms;
+    animation-timing-function: ease-out;
+    animation-delay: 200ms;
+    animation-fill-mode: both;
+  }
 }
 main {
   margin-top: calc(var(--base-size) * 1.5);
@@ -242,53 +261,57 @@ footer {
   width: 100vw;
 }
 
-@keyframes expand_button {
+@keyframes rotate_svg {
   0% {
-    transform: translate(0, 0) rotate(45deg);
-  }
-  40% {
-    transform: translate(0, 0) rotate(270deg);
+    transform: rotate(45deg);
   }
   100% {
-    transform: translate(-70vw, 0) rotate(270deg);
+    transform: rotate(270deg);
   }
 }
 @media screen and (max-width: 600px) {
-  @keyframes expand_button {
+  @keyframes rotate_svg {
     0% {
-      transform: translate(0, 0) rotate(45deg);
-    }
-    40% {
-      transform: translate(0, 0) rotate(-180deg);
+      transform: rotate(45deg);
     }
     100% {
-      transform: translate(0, 0) rotate(-180deg);
+      transform: rotate(-180deg);
     }
+  }
+}
+@keyframes expand_button {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(var(--navigation-width) * -1), 0);
   }
 }
 
-@keyframes fold_button {
+@keyframes derotate_svg {
   0% {
-    transform: translate(-70vw, 0) rotate(270deg);
-  }
-  60% {
-    transform: translate(0, 0) rotate(270deg);
+    transform: rotate(270deg);
   }
   100% {
-    transform: translate(0, 0) rotate(45deg);
+    transform: rotate(45deg);
   }
 }
 @media screen and (max-width: 600px) {
-  @keyframes fold_button {
+  @keyframes derotate_svg {
     0% {
-      transform: translate(0, 0) rotate(-180deg);
-    }
-    60% {
-      transform: translate(0, 0) rotate(-180deg);
+      transform: rotate(-180deg);
     }
     100% {
-      transform: translate(0, 0) rotate(45deg);
+      transform: rotate(45deg);
     }
+  }
+}
+@keyframes fold_button {
+  0% {
+    transform: translate(calc(var(--navigation-width) * -1), 0);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
 
