@@ -68,6 +68,13 @@ a {
   background-color: var(--accent-color);
   text-decoration: underline;
 }
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
 header {
   position: fixed;
   top: 0;
