@@ -8,6 +8,7 @@
   --font-size-medium: 2vw;
   --font-size-small: 2vw;
   --accent-color: #fc0;
+  --accent-text-color: #000;
   --ui-over-text-color: #000;
   --ui-over-bg: #888;
   --ui-over-bg-hover: #555;
@@ -63,7 +64,9 @@ body {
   font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 a {
-  text-decoration: none;
+  color: var(--accent-text-color);
+  background-color: var(--accent-color);
+  text-decoration: underline;
 }
 header {
   position: fixed;
