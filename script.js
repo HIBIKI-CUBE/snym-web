@@ -2,7 +2,7 @@ const scroll_duration = 400; //ms
 
 document.addEventListener("DOMContentLoaded", () => {
   {
-    const buttons = document.getElementsByClassName('js_jump_button');
+    const buttons = document.querySelectorAll('[data-target]');
     const header = document.getElementById('header');
     let is_scrolling = false;
     for (let i = 0; i < buttons.length; i++) {
