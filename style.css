@@ -284,10 +284,24 @@ article {
   height: calc(100vh - var(--base-size));
   object-fit: contain;
 }
-.main_member {
+.main_member_list {
+  flex-direction: row;
+}
+@media screen and (max-width: 600px) {
+  .main_member_list {
+    flex-direction: column;
+  }
+}
+.main_member_id {
   align-items: center;
   justify-content: flex-start;
   margin: 1em 0;
+}
+@media screen and (max-width: 600px) {
+  .main_member_id:nth-child(even) {
+    align-self: flex-end;
+    justify-content: flex-end;
+  }
 }
 .main_member_avatar {
   width: 5vw;
@@ -324,6 +338,11 @@ article {
 }
 .main_member_post {
   flex: 0 0 100%;
+}
+@media screen and (max-width: 600px) {
+  .main_member_id:nth-child(even) .main_member_post {
+    text-align: right;
+  }
 }
 footer {
   width: 100vw;
