@@ -297,15 +297,18 @@ article {
 @media screen and (max-width: 600px) {
   .main_member_avatar {
     width: 15vw;
+    height: 15vw;
   }
 }
 .main_member_avatar_parent {
+  width: 5vw;
   height: 5vw;
   margin-bottom: 0.5em;
 }
 @media screen and (max-width: 600px) {
   .main_member_avatar_parent {
     width: 15vw;
+    height: 15vw;
   }
 }
 .main_member_name {
