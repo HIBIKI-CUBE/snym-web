@@ -10,7 +10,7 @@
   --font-size-large 2vw
   --font-size-medium 2vw
   --font-size-small 2vw
-  --accent-color #050
+  --accent-color #7f5
   --accent-text-color #fff
   --ui-over-text-color #000
   --ui-over-bg #888
@@ -64,8 +64,7 @@ html,body
   font-family -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
 
 a
-  color var(--accent-text-color)
-  background-color var(--accent-color)
+  color var(--accent-color)
   text-decoration underline
 
 ul
