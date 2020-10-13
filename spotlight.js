@@ -3,13 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let height = document.documentElement.clientHeight;
   let x, y = 0;
   let isHidden = false;
+  let isEnabled = false;
 
   function easeInOutCubic(x) {
     return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
   }
 
   addEventListener("mousemove", (e) => {
-    if (!isHidden) {
+    if (!isHidden || isEnabled) {
       x = e.pageX;
       y = e.pageY;
       requestAnimationFrame(spotlight);
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   addEventListener("resize", (e) => {
-    if (!isHidden) {
+    if (!isHidden || isEnabled) {
       width = document.documentElement.clientWidth;
       height = document.documentElement.clientHeight;
       requestAnimationFrame(spotlight);
@@ -25,8 +26,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   addEventListener("scroll", (e) => {
-    document.getElementById("dark-over").classList.add('hide_dark-over');
-    setTimeout(() => isHidden = true, 1000);
+    if (!isHidden) {
+      document.getElementById("dark-over").classList.add('hide_dark-over');
+      setTimeout(() => isHidden = true, 1000);
+    }
+  });
+
+  document.getElementById('hero').addEventListener('click', (e) => {
+    if (isEnabled) {
+      document.getElementById("dark-over").classList.add('hide_dark-over');
+      setTimeout(() => isEnabled = false, 1000);
+    } else {
+      isEnabled = true;
+      document.getElementById("dark-over").classList.remove('hide_dark-over');
+    }
+    x = e.pageX;
+    y = e.pageY;
+    requestAnimationFrame(spotlight);
   });
 
   function spotlight(time) {

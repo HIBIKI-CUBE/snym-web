@@ -261,9 +261,12 @@ header
   align-items center
   background #000000D8
   mix-blend-mode hard-light
+  pointer-events none
+  transition-property opacity
+  transition-duration 1s
 
   &.hide_dark-over
-    animation hide_dark-over 1s ease-out forwards
+    opacity 0
 
   @media screen and (max-width 600px)
     display none
@@ -274,9 +277,6 @@ header
   background #EEDA
   border-radius 50%
   filter blur(10px)
-
-  @media screen and (max-width 600px)
-    display none
 
 main
   margin-top calc(var(--base-size) * 1.5)

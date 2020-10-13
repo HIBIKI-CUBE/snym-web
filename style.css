@@ -280,9 +280,12 @@ header {
   align-items: center;
   background: rgba(0,0,0,0.847);
   mix-blend-mode: hard-light;
+  pointer-events: none;
+  transition-property: opacity;
+  transition-duration: 1s;
 }
 #dark-over.hide_dark-over {
-  animation: hide_dark-over 1s ease-out forwards;
+  opacity: 0;
 }
 @media screen and (max-width: 600px) {
   #dark-over {
@@ -295,11 +298,6 @@ header {
   background: rgba(238,238,221,0.667);
   border-radius: 50%;
   filter: blur(10px);
-}
-@media screen and (max-width: 600px) {
-  #spotlight {
-    display: none;
-  }
 }
 main {
   margin-top: calc(var(--base-size) * 1.5);
