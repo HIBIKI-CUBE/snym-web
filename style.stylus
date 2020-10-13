@@ -250,6 +250,34 @@ header
     animation-delay 150ms
     animation-fill-mode both
 
+#dark-over
+  position fixed
+  top 0
+  perspective 800px
+  display flex
+  width 100vw
+  height 100vh
+  justify-content center
+  align-items center
+  background #000000D8
+  mix-blend-mode hard-light
+
+  &.hide_dark-over
+    animation hide_dark-over 1s ease-out forwards
+
+  @media screen and (max-width 600px)
+    display none
+
+#spotlight
+  width 10vw
+  height 10vw
+  background #EEDA
+  border-radius 50%
+  filter blur(10px)
+
+  @media screen and (max-width 600px)
+    display none
+
 main
   margin-top calc(var(--base-size) * 1.5)
   width 100vw
@@ -322,6 +350,15 @@ footer
   width 100vw
 
 @css{
+  @keyframes hide_dark-over {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
   @keyframes rotate_svg {
     0% {
       transform: rotate(45deg);
