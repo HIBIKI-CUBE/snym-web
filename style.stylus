@@ -47,6 +47,13 @@ vendorarg(prop, arg)
 
 .flex_half-on_pc
   flex 0 0 47.5%
+
+  &.w6
+    flex 0 0 57.5%
+
+  &.w4
+    flex 0 0 37.5%
+
   @media screen and (max-width 600px)
     flex 0 0 100%
 
@@ -73,6 +80,9 @@ ul
 
 li
   list-style-type none
+
+p
+  margin 0.5em 0 0.5em
 
 header
   position fixed
