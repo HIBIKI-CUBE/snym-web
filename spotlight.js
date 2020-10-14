@@ -18,15 +18,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  addEventListener("click", (e) => cancelAnimation());
-
-  addEventListener("mousemove", (e) => {
-    cancelAnimation();
+  function updatePosition(e) {
     if (!isHidden || isEnabled) {
       x = e.pageX;
       y = e.pageY;
       requestAnimationFrame(spotlight);
     }
+  }
+
+  addEventListener("click", (e) => cancelAnimation());
+
+  addEventListener("mousemove", (e) => {
+    cancelAnimation();
+    updatePosition(e);
+  });
+
+  addEventListener("touchstart", (e) => {
+    cancelAnimation();
+    updatePosition(e);
+  });
+
+  addEventListener("touchmove", (e) => {
+    cancelAnimation();
+    updatePosition(e);
   });
 
   addEventListener("resize", (e) => {
@@ -64,7 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate(${(pos.x < 0 ? 180 : 0) + Math.atan(pos.y / pos.x) * 180 / Math.PI}deg)
       scaleY(${1 - 0.1 * Math.sqrt(Math.pow(pos.x / (width / 2), 2) + Math.pow(pos.y / (height / 2), 2))})
       translateX(${Math.sqrt(Math.pow(pos.x, 2) + Math.pow(pos.y, 2))}px)
-      rotateY(${ -10 * Math.sqrt(Math.pow(pos.x / (width / 2), 2) + Math.pow(pos.y / (height / 2), 2))}deg)`;
+      rotateY(${ -10 * Math.sqrt(Math.pow(pos.x / (width / 2), 2) + Math.pow(pos.y / (height / 2), 2))}deg)
+      translateZ(50px)`;
   }
 
 }, {once: true, passive: true});
