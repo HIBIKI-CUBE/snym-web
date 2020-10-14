@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let width = document.documentElement.clientWidth;
   let height = document.documentElement.clientHeight;
   let x, y = 0;
+  let isFirstTime = true;
   let isHidden = false;
   let isEnabled = false;
 
@@ -9,7 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
   }
 
+  function cancelAnimation() {
+    if (isFirstTime) {
+      document.getElementById("spotlight").classList.remove('isAnimating');
+      isFirstTime = false;
+      requestAnimationFrame(spotlight);
+    }
+  }
+
+  addEventListener("click", (e) => cancelAnimation());
+
   addEventListener("mousemove", (e) => {
+    cancelAnimation();
     if (!isHidden || isEnabled) {
       x = e.pageX;
       y = e.pageY;

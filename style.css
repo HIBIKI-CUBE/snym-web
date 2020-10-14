@@ -299,6 +299,9 @@ header {
   border-radius: 50%;
   filter: blur(10px);
 }
+#spotlight.isAnimating {
+  animation: spotlight-animation 4s ease-in-out infinite both alternate;
+}
 main {
   margin-top: calc(var(--base-size) * 1.5);
   width: 100vw;
@@ -385,6 +388,18 @@ article {
 }
 footer {
   width: 100vw;
+}
+
+@keyframes spotlight-animation {
+  0% {
+    transform: perspective(800px) scaleY(0.9) translateX(calc(-50vw + 50%)) rotateY(10deg);
+  }
+  50%{
+    transform: perspective(800px) scaleY(1) translateX(0) rotateY(0deg);
+  }
+  100%{
+    transform: perspective(800px) scaleY(0.9) translateX(calc(50vw - 50%)) rotateY(-10deg);
+  }
 }
 
 @keyframes hide_dark-over {
