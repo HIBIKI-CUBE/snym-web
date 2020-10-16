@@ -361,6 +361,10 @@ article {
   width: 5vw;
   height: 5vw;
   border-radius: 50%;
+  object-fit: contain;
+}
+.main_member_avatar.temporary {
+  background-color: var(--ui-bg);
 }
 @media screen and (max-width: 600px) {
   .main_member_avatar {

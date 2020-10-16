@@ -332,6 +332,11 @@ article
   width 5vw
   height 5vw
   border-radius 50%
+  object-fit contain
+
+  &.temporary
+    background-color var(--ui-bg)
+
   @media screen and (max-width 600px)
     width 15vw
     height 15vw
