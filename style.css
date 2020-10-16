@@ -326,6 +326,11 @@ article {
   height: calc(100vh - var(--base-size));
   object-fit: contain;
 }
+@media screen and (max-width: 600px) {
+  .main_works_hero_image {
+    height: -webkit-fill-available;
+  }
+}
 .main_member_list {
   flex-direction: row;
 }
