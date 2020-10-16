@@ -282,7 +282,7 @@ header
     animation spotlight-animation 4s ease-in-out infinite both alternate
 
 main
-  margin-top calc(var(--base-size) * 1.5)
+  margin-top var(--base-size)
   width 100vw
 
 article
@@ -355,13 +355,13 @@ footer
 @css{
   @keyframes spotlight-animation {
     0% {
-      transform: perspective(800px) scaleY(0.9) translateX(calc(-50vw + 50%)) rotateY(10deg) translateZ(50px);
+      transform: perspective(800px) scaleY(0.9) translateX(calc(-50vw + 50%)) rotateY(10deg) translateZ(50px) translateY(calc(var(--base-size) / 2));
     }
     50%{
-      transform: perspective(800px) scaleY(1) translateX(0) rotateY(0deg) translateZ(50px);
+      transform: perspective(800px) scaleY(1) translateX(0) rotateY(0deg) translateZ(50px) translateY(calc(var(--base-size) / 2));
     }
     100%{
-      transform: perspective(800px) scaleY(0.9) translateX(calc(50vw - 50%)) rotateY(-10deg) translateZ(50px);
+      transform: perspective(800px) scaleY(0.9) translateX(calc(50vw - 50%)) rotateY(-10deg) translateZ(50px) translateY(calc(var(--base-size) / 2));
     }
   }
 
