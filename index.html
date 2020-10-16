@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/style.css">
   <script defer src="/script.js"></script>
   <script defer src="/spotlight.js"></script>
+  <script defer src="/iframe-lazy.js"></script>
 </head>
 
 <body>
@@ -71,7 +72,16 @@
         </div>
         <section class="main_works_article-section">
           <h3 class="main_works_article-section_title" id="trailer">~トレーラー映像~</h3>
-          <iframe class="main_works_article-section_iframe"width="560" height="315" src="https://www.youtube-nocookie.com/embed/CnEFU2Wwf2E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy">PREDATOR AND WRECK、Trial版のトレーラー映像の埋め込み</iframe>
+          <div data-iframe="{
+            'class':'main_works_article-section_iframe',
+            'width':560,
+            'height':315,
+            'src':'https://www.youtube-nocookie.com/embed/CnEFU2Wwf2E',
+            'frameborder':0,
+            'allow':'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',
+            'allowfullscreen':true,
+            'loading':'lazy'
+          }">PREDATOR AND WRECK、Trial版のトレーラー映像の埋め込み</div>
         </section>
         <section>
           <h3 class="main_works_article-section_title" id="requirements">システム要件</h3>

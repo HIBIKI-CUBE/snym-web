@@ -320,6 +320,7 @@ article {
 .main_works_article-section_iframe {
   width: var(--article-width);
   height: calc(var(--article-width) / 16 * 9);
+  background-color: var(--bg);
 }
 .main_works_hero_image {
   width: 100%;
