@@ -300,6 +300,12 @@ article
   width var(--article-width)
   height calc(var(--article-width) / 16 * 9)
   background-color var(--bg)
+  opacity 0
+  transition-property opacity
+  transition-duration 200ms
+
+  &.isLoaded
+    opacity 1
 
 .main_works_hero_image
   width 100%
