@@ -21,7 +21,7 @@
   --main-bg: #fff;
   --bg: #000;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   :root {
     --article-width: 85vw;
   }
@@ -31,7 +31,7 @@
     --ui-bg: rgba(200,200,200,0.5);
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   :root {
     --base-size: 12vw;
   }
@@ -44,13 +44,7 @@
 .flex_half-on_pc {
   flex: 0 0 47.5%;
 }
-.flex_half-on_pc.w6 {
-  flex: 0 0 57.5%;
-}
-.flex_half-on_pc.w4 {
-  flex: 0 0 37.5%;
-}
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .flex_half-on_pc {
     flex: 0 0 100%;
   }
@@ -161,7 +155,7 @@ header {
   justify-content: center;
   background-color: var(--ui-over-bg);
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 750px) {
   .header_button {
     animation-name: fold_button;
     animation-duration: 200ms;
@@ -181,7 +175,7 @@ header {
   border-color: transparent;
   border-right-color: var(--ui-over-bg);
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 750px) {
   .header_button:hover {
     background-color: var(--ui-over-bg-hover);
   }
@@ -217,7 +211,7 @@ header {
   animation-timing-function: ease-out;
   animation-fill-mode: both;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .header_navigation {
     flex-wrap: wrap;
     width: 100vw;
@@ -237,17 +231,17 @@ header {
   text-align: center;
   color: var(--ui-text-color);
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .header_navigation_list_items {
     flex: 0 0 50vw;
   }
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 750px) {
   .header_navigation_list_items:hover {
     background-color: var(--ui-over-bg-hover);
   }
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 750px) {
   .header_navigation_list_items+.header_navigation_list_items:before {
     content: '';
     position: absolute;
@@ -259,7 +253,7 @@ header {
     background-color: var(--ui-text-color);
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .header_navigation_list_items+.header_navigation_list_items:nth-child(2):before {
     content: none;
   }
@@ -269,7 +263,7 @@ header {
   line-height: calc(var(--base-size) / 2);
   font-weight: normal;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .header_navigation_title {
     flex: 0 0 100vw;
     line-height: var(--base-size);
@@ -289,7 +283,7 @@ header {
   animation-delay: 0ms;
   animation-fill-mode: both;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 750px) {
   #header_button_checkbox:checked ~ .header_button {
     animation-name: expand_button;
     animation-duration: 200ms;
@@ -316,7 +310,7 @@ header {
 #dark-over.hide_dark-over {
   opacity: 0;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   #dark-over {
     display: none;
   }
@@ -362,7 +356,7 @@ article {
   height: calc(100vh - var(--base-size));
   object-fit: contain;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .main_works_hero_image {
     height: -webkit-fill-available;
   }
@@ -370,7 +364,7 @@ article {
 .main_member_list {
   flex-direction: row;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .main_member_list {
     flex-direction: column;
   }
@@ -380,7 +374,7 @@ article {
   justify-content: flex-start;
   margin: 1em 0;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .main_member_id:nth-child(even) {
     align-self: flex-end;
     justify-content: flex-end;
@@ -395,7 +389,7 @@ article {
 .main_member_avatar.temporary {
   background-color: var(--ui-bg);
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .main_member_avatar {
     width: 15vw;
     height: 15vw;
@@ -406,7 +400,7 @@ article {
   height: 5vw;
   margin-bottom: 0.5em;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .main_member_avatar_parent {
     width: 15vw;
     height: 15vw;
@@ -417,7 +411,7 @@ article {
   line-height: 5vw;
   margin: 0 0 0.5em 1em;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .main_member_name {
     height: 15vw;
     line-height: 15vw;
@@ -426,7 +420,7 @@ article {
 .main_member_post {
   flex: 0 0 100%;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .main_member_id:nth-child(even) .main_member_post {
     text-align: right;
   }
@@ -464,7 +458,7 @@ footer {
     transform: rotate(270deg);
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   @keyframes rotate_svg {
     0% {
       transform: rotate(45deg);
@@ -491,7 +485,7 @@ footer {
     transform: rotate(45deg);
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   @keyframes derotate_svg {
     0% {
       transform: rotate(-180deg);
@@ -518,7 +512,7 @@ footer {
     transform: translate(0%, 0%);
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   @keyframes expand_navigation {
     from {
       transform: translate(0%, -100%);
@@ -537,7 +531,7 @@ footer {
     transform: translate(100%, 0%);
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   @keyframes fold_navigation {
     from {
       transform: translate(0%, 25%);

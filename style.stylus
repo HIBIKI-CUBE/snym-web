@@ -4,7 +4,7 @@
   --base-size 7vh
   --base-size-vw 1.2vw
   --article-width 60vw
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     --article-width 85vw
   --navigation-width 70vw
   --font-size-large 2vw
@@ -26,7 +26,7 @@
   --main-bg rgba(255,255,255,1)
   --bg rgba(0,0,0,1)
 
-@media screen and (max-width 600px)
+@media screen and (max-width 750px)
   :root
     --base-size 12vw
 
@@ -48,13 +48,7 @@ vendorarg(prop, arg)
 .flex_half-on_pc
   flex 0 0 47.5%
 
-  &.w6
-    flex 0 0 57.5%
-
-  &.w4
-    flex 0 0 37.5%
-
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     flex 0 0 100%
 
 .liquid
@@ -65,7 +59,7 @@ vendorarg(prop, arg)
     flex 0 0 100%
 
 .pc-hide
-  @media screen and (min-width 600px)
+  @media screen and (min-width 750px)
     display none
 
 html,body
@@ -157,7 +151,7 @@ header
   align-items center
   justify-content center
   background-color var(--ui-over-bg)
-  @media screen and (min-width: 600px)
+  @media screen and (min-width: 750px)
     animation-name fold_button
     animation-duration 200ms
     animation-timing-function ease-out
@@ -175,7 +169,7 @@ header
     border-color transparent
     border-right-color var(--ui-over-bg)
 
-  @media screen and (min-width 600px)
+  @media screen and (min-width 750px)
     &:hover
       background-color var(--ui-over-bg-hover)
 
@@ -201,7 +195,7 @@ header
   width var(--navigation-width)
   z-index 3000
   font-size var(--base-size-vw)
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     flex-wrap wrap
     width 100vw
     z-index 1000
@@ -219,7 +213,7 @@ header
   display block
   width 100%
   background-color var(--ui-over-bg)
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     flex 0 0 50vw
   height var(--base-size)
   line-height var(--base-size)
@@ -230,11 +224,11 @@ header
   color var(--ui-text-color)
 
   &:hover
-    @media screen and (min-width 600px)
+    @media screen and (min-width 750px)
       background-color var(--ui-over-bg-hover)
 
   &+&:before
-    @media screen and (min-width 600px)
+    @media screen and (min-width 750px)
       content ''
       position absolute
       width 1px
@@ -244,7 +238,7 @@ header
       display block
       background-color var(--ui-text-color)
 
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     &+&:nth-child(2):before
       content none
 
@@ -252,7 +246,7 @@ header
   margin 0
   line-height calc(var(--base-size) / 2)
   font-weight normal
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     flex 0 0 100vw
     line-height var(--base-size)
 
@@ -270,7 +264,7 @@ header
   animation-delay 0ms
   animation-fill-mode both
 
-@media screen and (min-width: 600px)
+@media screen and (min-width: 750px)
   #header_button_checkbox:checked ~ .header_button
     animation-name expand_button
     animation-duration 200ms
@@ -296,7 +290,7 @@ header
   &.hide_dark-over
     opacity 0
 
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     display none
 
 #spotlight
@@ -338,20 +332,20 @@ article
 .main_works_hero_image
   width 100%
   height calc(100vh - var(--base-size))
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     height -webkit-fill-available
   object-fit contain
 
 .main_member_list
   flex-direction row
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     flex-direction column
 
 .main_member_id
   align-items center
   justify-content flex-start
   margin 1em 0
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     &:nth-child(even)
       align-self flex-end
       justify-content flex-end
@@ -365,7 +359,7 @@ article
   &.temporary
     background-color var(--ui-bg)
 
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     width 15vw
     height 15vw
 
@@ -373,7 +367,7 @@ article
   width 5vw
   height 5vw
   margin-bottom .5em
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     width 15vw
     height 15vw
 
@@ -381,13 +375,13 @@ article
   height 5vw
   line-height 5vw
   margin 0 0 .5em 1em
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     height 15vw
     line-height 15vw
 
 .main_member_post
   flex 0 0 100%
-  @media screen and (max-width 600px)
+  @media screen and (max-width 750px)
     .main_member_id:nth-child(even) &
       text-align right
 
@@ -424,7 +418,7 @@ footer
       transform: rotate(270deg);
     }
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 750px) {
     @keyframes rotate_svg {
       0% {
         transform: rotate(45deg);
@@ -451,7 +445,7 @@ footer
       transform: rotate(45deg);
     }
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 750px) {
     @keyframes derotate_svg {
       0% {
         transform: rotate(-180deg);
@@ -478,7 +472,7 @@ footer
       transform: translate(0%, 0%);
     }
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 750px) {
     @keyframes expand_navigation {
       from {
         transform: translate(0%, -100%);
@@ -497,7 +491,7 @@ footer
       transform: translate(100%, 0%);
     }
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 750px) {
     @keyframes fold_navigation {
       from {
         transform: translate(0%, 25%);
