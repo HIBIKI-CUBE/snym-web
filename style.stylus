@@ -57,6 +57,13 @@ vendorarg(prop, arg)
   @media screen and (max-width 600px)
     flex 0 0 100%
 
+.liquid
+  flex 1
+  margin-right calc(var(--article-width) * 0.05)
+
+  @media screen and (max-width 750px)
+    flex 0 0 100%
+
 .pc-hide
   @media screen and (min-width 600px)
     display none
@@ -83,6 +90,27 @@ li
 
 p
   margin 0.5em 0 0.5em
+
+table
+  table-layout auto
+  border-spacing 0px
+
+td
+  padding 0px
+
+  &:first-child
+    padding-right 1.5ch
+    text-align right
+    vertical-align top
+    white-space nowrap
+
+  &:first-child:after
+    content ':'
+    margin-left 0.5ch
+
+  #info+&:last-child
+    white-space nowrap
+
 
 header
   position fixed
