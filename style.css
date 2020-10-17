@@ -422,9 +422,8 @@ article {
   display: block;
   width: 5vw;
   height: 5vw;
-  height: 15vw;
+  border-width: 1vw;
   border-style: solid;
-  border-width: 10px;
   border-color: transparent;
   box-sizing: border-box;
   border-radius: 50%;
@@ -435,6 +434,8 @@ article {
 @media screen and (max-width: 750px) {
   .main_member_avatar_parent:before {
     width: 15vw;
+    height: 15vw;
+    border-width: 3vw;
   }
 }
 .main_member_avatar_parent:hover:before {
