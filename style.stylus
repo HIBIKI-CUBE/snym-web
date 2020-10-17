@@ -402,8 +402,8 @@ article
     box-sizing border-box
     border-radius 50%
     transition-property border-width border-color
-    transition-duration 150ms
-    transition-timing-function ease-in-out
+    transition-duration 100ms
+    transition-timing-function ease-in
 
   &:hover:before
     border-width 3px
