@@ -416,16 +416,30 @@ article {
     height: 15vw;
   }
 }
-.main_member_name {
+.main_member_avatar_parent:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 5vw;
   height: 5vw;
-  line-height: 5vw;
-  margin: 0 0 0.5em 1em;
+  height: 15vw;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent;
+  box-sizing: border-box;
+  border-radius: 50%;
+  transition-property: border-width border-color;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
 }
 @media screen and (max-width: 750px) {
-  .main_member_name {
-    height: 15vw;
-    line-height: 15vw;
+  .main_member_avatar_parent:before {
+    width: 15vw;
   }
+}
+.main_member_avatar_parent:hover:before {
+  border-width: 3px;
+  border-color: var(--accent-color);
 }
 .main_member_post {
   flex: 0 0 100%;
