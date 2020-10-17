@@ -51,6 +51,9 @@ vendorarg(prop, arg)
   @media screen and (max-width 750px)
     flex 0 0 100%
 
+.flex_half
+  flex 0 0 47.5%
+
 .liquid
   flex 1
   margin-right calc(var(--article-width) * 0.05)
@@ -338,33 +341,36 @@ article
 
 .main_member_list
   flex-direction row
-  @media screen and (max-width 750px)
-    flex-direction column
 
 .main_member_id
   align-items center
   justify-content flex-start
   margin 1em 0
-  @media screen and (max-width 750px)
-    &:nth-child(even)
-      align-self flex-end
-      justify-content flex-end
+  flex-wrap nowrap
+  position relative
+
+.main_member_id:after
+  content ''
+  display block
+  position absolute
+  right 0px
+  bottom 0px
+  border-style solid
+  border-width 1em 2em 0 1em
+  border-color transparent
+  border-right-color var(--accent-color)
+
+  .main_member_list:last-child &
+    display none
+
+  @media screen and (min-width 750px)
+    display none
 
 .main_member_avatar
   width 5vw
   height 5vw
   border-radius 50%
   object-fit contain
-  border-style solid
-  border-width 0px
-  border-color var(--accent-color)
-  box-sizing border-box
-  transition-property border-width
-  transition-duration 150ms
-  transition-timing-function ease-in-out
-
-  &:hover
-    border-width 2px
 
   &.temporary
     background-color var(--ui-bg)
@@ -376,7 +382,6 @@ article
 .main_member_avatar_parent
   width 5vw
   height 5vw
-  margin-bottom .5em
   @media screen and (max-width 750px)
     width 15vw
     height 15vw
@@ -404,11 +409,15 @@ article
     border-width 3px
     border-color var(--accent-color)
 
-.main_member_post
-  flex 0 0 100%
-  @media screen and (max-width 750px)
-    .main_member_id:nth-child(even) &
-      text-align right
+.main_member_id_layout
+  display flex
+  flex-direction column
+  justify-content center
+  margin-left 2ch
+
+.main_member_name
+  margin 0
+  margin-bottom .25em
 
 footer
   width 100vw
