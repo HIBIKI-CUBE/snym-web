@@ -28,6 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   addEventListener("click", (e) => cancelAnimation());
 
+  setTimeout(() => {
+    if (!isHidden) {
+      document.getElementById("dark-over").classList.add('hide_dark-over');
+      setTimeout(() => isHidden = true, 1000);
+    }
+  }, 5000);
+
   addEventListener("mousemove", (e) => {
     cancelAnimation();
     updatePosition(e);

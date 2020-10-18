@@ -337,6 +337,10 @@ article
   height calc(100vh - var(--base-size))
   @media screen and (max-width 750px)
     height -webkit-fill-available
+  &.isAnimating
+    transition height 2s
+  &.isMinimized
+    height calc(70vw / 1703 * 192 * 2)
 
 .main_works_hero_image
   width 100%
