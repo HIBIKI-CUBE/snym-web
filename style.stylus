@@ -334,13 +334,13 @@ article
 
 #hero
   padding 0 15vw
-  height calc(100vh - var(--base-size))
-  @media screen and (max-width 750px)
-    height -webkit-fill-available
-  &.isAnimating
-    transition height 2s ease-in-out
-  &.isMinimized
-    height calc(70vw / 1703 * 192 * 2)
+  height 50vh
+  @media screen and (min-width 750px)
+    height calc(100vh - var(--base-size) - env(safe-area-inset-bottom))
+    &.isAnimating
+      transition height 2s ease-in-out
+    &.isMinimized
+      height calc(70vw / 1703 * 192 * 2)
 
 .main_works_hero_image
   width 100%

@@ -356,18 +356,18 @@ article {
 }
 #hero {
   padding: 0 15vw;
-  height: calc(100vh - var(--base-size));
+  height: 50vh;
 }
-@media screen and (max-width: 750px) {
+@media screen and (min-width: 750px) {
   #hero {
-    height: -webkit-fill-available;
+    height: calc(100vh - var(--base-size) - env(safe-area-inset-bottom));
   }
-}
-#hero.isAnimating {
-  transition: height 2s ease-in-out;
-}
-#hero.isMinimized {
-  height: calc(70vw / 1703 * 192 * 2);
+  #hero.isAnimating {
+    transition: height 2s ease-in-out;
+  }
+  #hero.isMinimized {
+    height: calc(70vw / 1703 * 192 * 2);
+  }
 }
 .main_works_hero_image {
   width: 100%;
