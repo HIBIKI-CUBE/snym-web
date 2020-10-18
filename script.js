@@ -31,8 +31,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   setTimeout(() => document.getElementById('header_button_checkbox').checked = false, 2000);
-  setTimeout(() => {
-    document.getElementById('hero').classList.add('isMinimized', 'isAnimating');
-    setTimeout(() => document.getElementById('hero').classList.remove('isAnimating'), 2000);
-  }, 5000);
 }, {once: true, passive: true});
