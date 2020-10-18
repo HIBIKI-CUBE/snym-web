@@ -420,7 +420,32 @@ article
   margin-bottom .25em
 
 footer
+  margin-top 2em
+  box-sizing border-box
   width 100vw
+  display flex
+  padding 2em 10% 2em
+  justify-content space-between
+  align-items stretch
+  font-size 0.8em
+  background-color var(--ui-bg)
+  @media screen and (max-width 750px)
+    flex-direction column
+
+  section
+    border-bottom solid 1px var(--accent-color)
+    vertical-align middle
+
+    &:not(:last-child)
+      @media screen and (max-width 750px)
+        margin-bottom 0.5em
+
+      @media screen and (min-width 750px)
+        margin-right 1em
+
+.footer_copyright
+  @media screen and (max-width 750px)
+    text-align center
 
 @css{
   @keyframes spotlight-animation {

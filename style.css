@@ -455,7 +455,39 @@ article {
   margin-bottom: 0.25em;
 }
 footer {
+  margin-top: 2em;
+  box-sizing: border-box;
   width: 100vw;
+  display: flex;
+  padding: 2em 10% 2em;
+  justify-content: space-between;
+  align-items: stretch;
+  font-size: 0.8em;
+  background-color: var(--ui-bg);
+}
+@media screen and (max-width: 750px) {
+  footer {
+    flex-direction: column;
+  }
+}
+footer section {
+  border-bottom: solid 1px var(--accent-color);
+  vertical-align: middle;
+}
+@media screen and (max-width: 750px) {
+  footer section:not(:last-child) {
+    margin-bottom: 0.5em;
+  }
+}
+@media screen and (min-width: 750px) {
+  footer section:not(:last-child) {
+    margin-right: 1em;
+  }
+}
+@media screen and (max-width: 750px) {
+  .footer_copyright {
+    text-align: center;
+  }
 }
 
 @keyframes spotlight-animation {
