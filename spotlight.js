@@ -6,10 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let isHidden = false;
   let isEnabled = false;
 
-  function easeInOutCubic(x) {
-    return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
-  }
-
   function cancelAnimation() {
     if (isFirstTime) {
       document.getElementById("spotlight").classList.remove('isAnimating');
@@ -26,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  addEventListener("click", (e) => cancelAnimation());
+  addEventListener("click", () => cancelAnimation());
 
   setTimeout(() => {
     if (!isHidden) {
@@ -35,22 +31,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 5000);
 
-  addEventListener("mousemove", (e) => {
+  addEventListener("mousemove", e => {
     cancelAnimation();
     updatePosition(e);
   });
 
-  addEventListener("touchstart", (e) => {
+  addEventListener("touchstart", e => {
     cancelAnimation();
     updatePosition(e);
   });
 
-  addEventListener("touchmove", (e) => {
+  addEventListener("touchmove", e => {
     cancelAnimation();
     updatePosition(e);
   });
 
-  addEventListener("resize", (e) => {
+  addEventListener("resize", () => {
     if (!isHidden || isEnabled) {
       width = document.documentElement.clientWidth;
       height = document.documentElement.clientHeight;
@@ -58,14 +54,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  addEventListener("scroll", (e) => {
+  addEventListener("scroll", () => {
     if (!isHidden) {
       document.getElementById("dark-over").classList.add('hide_dark-over');
       setTimeout(() => isHidden = true, 1000);
     }
   });
 
-  document.getElementById('hero').addEventListener('click', (e) => {
+  document.getElementById('hero').addEventListener('click', e => {
     if (isEnabled) {
       document.getElementById("dark-over").classList.add('hide_dark-over');
       setTimeout(() => isEnabled = false, 1000);
@@ -78,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(spotlight);
   });
 
-  function spotlight(time) {
+  function spotlight() {
     const pos = { x: x - width/2, y: y - height/2 - pageYOffset};
     document.getElementById("spotlight").style.transform =
       `perspective(800px)
