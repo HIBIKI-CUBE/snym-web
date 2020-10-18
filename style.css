@@ -354,15 +354,19 @@ article {
 .main_works_article-section_iframe.isLoaded {
   opacity: 1;
 }
-.main_works_hero_image {
-  width: 100%;
+#hero {
+  padding: 0 15vw;
   height: calc(100vh - var(--base-size));
-  object-fit: contain;
 }
 @media screen and (max-width: 750px) {
-  .main_works_hero_image {
+  #hero {
     height: -webkit-fill-available;
   }
+}
+.main_works_hero_image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .main_member_list {
   flex-direction: row;
