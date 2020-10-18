@@ -29,7 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("dark-over").classList.add('hide_dark-over');
       setTimeout(() => isHidden = true, 1000);
       document.getElementById('hero').classList.add('isMinimized', 'isAnimating');
-      setTimeout(() => document.getElementById('hero').classList.remove('isAnimating'), 2000);
+      setTimeout(() => {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent('scroll', true, true);
+        document.body.dispatchEvent(evt);
+        document.getElementById('hero').classList.remove('isAnimating');
+      }, 2000);
     }
   }, 5000);
 
