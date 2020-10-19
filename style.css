@@ -370,6 +370,28 @@ article {
     height: calc(70vw / 1703 * 192 * 2);
   }
 }
+#hero.gaming:before {
+  content: '';
+  width: 100vw;
+  height: 50vh;
+  display: block;
+  position: absolute;
+  left: 0;
+  background-color: #f00;
+  mix-blend-mode: multiply;
+  animation: gaming-snym_logo 3s linear infinite;
+}
+@media screen and (min-width: 750px) {
+  #hero.gaming:before {
+    height: calc(100vh - var(--base-size) - env(safe-area-inset-bottom));
+  }
+  .isAnimating#hero.gaming:before {
+    transition: height 2s ease-in-out;
+  }
+  .isMinimized#hero.gaming:before {
+    height: calc(70vw / 1703 * 192 * 2);
+  }
+}
 .main_works_hero_image {
   width: 100%;
   height: 100%;
@@ -549,6 +571,15 @@ footer section {
   }
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes gaming-snym_logo {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
   }
 }
 

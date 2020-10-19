@@ -1,5 +1,8 @@
 const scroll_duration = 400; //ms
 
+const command = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+let commandsCount = 0;
+
 document.addEventListener("DOMContentLoaded", () => {
   {
     const buttons = document.querySelectorAll('[data-target]');
@@ -29,6 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if ((time - start_time) > scroll_duration) return;
     requestAnimationFrame(time => smooth_scroll(time, start_time, origin, destination));
   }
+
+  addEventListener('keydown', (e) => {
+    if (e.key == command[commandsCount]) {
+      if (++commandsCount >= command.length) document.getElementById('hero').classList.add('gaming');
+    } else commandsCount = 0;
+  });
 
   setTimeout(() => document.getElementById('header_button_checkbox').checked = false, 2000);
 }, {once: true, passive: true});

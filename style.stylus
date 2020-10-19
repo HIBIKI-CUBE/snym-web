@@ -343,6 +343,23 @@ article
     &.isMinimized
       height calc(70vw / 1703 * 192 * 2)
 
+  &.gaming:before
+    content ''
+    width 100vw
+    height 50vh
+    @media screen and (min-width 750px)
+      height calc(100vh - var(--base-size) - env(safe-area-inset-bottom))
+      .isAnimating&
+        transition height 2s ease-in-out
+      .isMinimized&
+        height calc(70vw / 1703 * 192 * 2)
+    display block
+    position absolute
+    left 0
+    background-color #F00
+    mix-blend-mode multiply
+    animation gaming-snym_logo 3s linear infinite
+
 .main_works_hero_image
   width 100%
   height 100%
@@ -504,6 +521,15 @@ footer
     }
     100% {
       opacity: 0;
+    }
+  }
+
+  @keyframes gaming-snym_logo {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
     }
   }
 
