@@ -502,126 +502,84 @@ footer
   @media screen and (max-width 750px)
     justify-content center
 
-@css{
-  @keyframes spotlight-animation {
-    0% {
-      transform: perspective(800px) scaleY(0.9) translateX(calc(-50vw + 50%)) rotateY(10deg) translateZ(50px) translateY(calc(var(--base-size) / 2));
-    }
-    50%{
-      transform: perspective(800px) scaleY(1) translateX(0) rotateY(0deg) translateZ(50px) translateY(calc(var(--base-size) / 2));
-    }
-    100%{
-      transform: perspective(800px) scaleY(0.9) translateX(calc(50vw - 50%)) rotateY(-10deg) translateZ(50px) translateY(calc(var(--base-size) / 2));
-    }
-  }
+@keyframes spotlight-animation
+  0%
+    transform perspective(800px) scaleY(0.9) translateX(calc(-50vw + 50%)) rotateY(10deg) translateZ(50px) translateY(calc(var(--base-size) / 2))
+  50%
+    transform perspective(800px) scaleY(1) translateX(0) rotateY(0deg) translateZ(50px) translateY(calc(var(--base-size) / 2))
+  100%
+    transform perspective(800px) scaleY(0.9) translateX(calc(50vw - 50%)) rotateY(-10deg) translateZ(50px) translateY(calc(var(--base-size) / 2))
 
-  @keyframes hide_dark-over {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
+@keyframes gaming-snym_logo
+  0%
+    filter hue-rotate(0deg)
+  100%
+    filter hue-rotate(360deg)
 
-  @keyframes gaming-snym_logo {
-    0% {
-      filter: hue-rotate(0deg);
-    }
-    100% {
-      filter: hue-rotate(360deg);
-    }
-  }
+@media screen and (min-width: 750px)
+  @keyframes hide_dark-over
+    0%
+      opacity 1
+    100%
+      opacity 0
 
-  @keyframes rotate_svg {
-    0% {
-      transform: rotate(45deg);
-    }
-    100% {
-      transform: rotate(270deg);
-    }
-  }
-  @media screen and (max-width: 750px) {
-    @keyframes rotate_svg {
-      0% {
-        transform: rotate(45deg);
-      }
-      100% {
-        transform: rotate(-180deg);
-      }
-    }
-  }
-  @keyframes expand_button {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(calc(var(--navigation-width) * -1), 0);
-    }
-  }
+  @keyframes rotate_svg
+    0%
+      transform rotate(45deg)
+    100%
+      transform rotate(270deg)
 
-  @keyframes derotate_svg {
-    0% {
-      transform: rotate(270deg);
-    }
-    100% {
-      transform: rotate(45deg);
-    }
-  }
-  @media screen and (max-width: 750px) {
-    @keyframes derotate_svg {
-      0% {
-        transform: rotate(-180deg);
-      }
-      100% {
-        transform: rotate(45deg);
-      }
-    }
-  }
-  @keyframes fold_button {
-    0% {
-      transform: translate(calc(var(--navigation-width) * -1), 0);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
-  }
+  @keyframes derotate_svg
+    0%
+      transform rotate(270deg)
+    100%
+      transform rotate(45deg)
 
-  @keyframes expand_navigation {
-    from {
-      transform: translate(100%, 0%);
-    }
-    to {
-      transform: translate(0%, 0%);
-    }
-  }
-  @media screen and (max-width: 750px) {
-    @keyframes expand_navigation {
-      from {
-        transform: translate(0%, -100%);
-      }
-      to {
-        transform: translate(0%, 25%);
-      }
-    }
-  }
+  @keyframes expand_button
+    0%
+      transform translate(0, 0)
+    100%
+      transform translate(calc(var(--navigation-width) * -1), 0)
 
-  @keyframes fold_navigation {
-    from {
-      transform: translate(0%, 0%);
-    }
-    to {
-      transform: translate(100%, 0%);
-    }
-  }
-  @media screen and (max-width: 750px) {
-    @keyframes fold_navigation {
-      from {
-        transform: translate(0%, 25%);
-      }
-      to {
-        transform: translate(0%, -100%);
-      }
-    }
-  }
-}
+  @keyframes fold_button
+    0%
+      transform translate(calc(var(--navigation-width) * -1), 0)
+    100%
+      transform translate(0, 0)
+
+  @keyframes expand_navigation
+    0%
+      transform translate(100%, 0%)
+    100%
+      transform translate(0%, 0%)
+
+  @keyframes fold_navigation
+    0%
+      transform translate(0%, 0%)
+    100%
+      transform translate(100%, 0%)
+
+@media screen and (max-width: 750px)
+  @keyframes rotate_svg
+    0%
+      transform rotate(45deg)
+    100%
+      transform rotate(-180deg)
+
+  @keyframes derotate_svg
+    0%
+      transform rotate(-180deg)
+    100%
+      transform rotate(45deg)
+
+  @keyframes expand_navigation
+    0%
+      transform translate(0%, -100%)
+    100%
+      transform translate(0%, 25%)
+
+  @keyframes fold_navigation
+    0%
+      transform translate(0%, 25%)
+    100%
+      transform translate(0%, -100%)
