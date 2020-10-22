@@ -4,6 +4,8 @@ const command = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "A
 const command_touch = [{ x: [0, 1], y: [0, 1 / 3] }, { x: [0, 1], y: [0, 1 / 3] }, { x: [0, 1], y: [2 / 3, 1] }, { x: [0, 1], y: [2 / 3, 1] }, { x: [0, 1 / 3], y: [0, 1] }, { x: [2 / 3, 1], y: [0, 1] }, { x: [0, 1 / 3], y: [0, 1] }, { x: [2 / 3, 1], y: [0, 1] }, { x: [1 / 3, 2 / 3], y: [1 / 3, 2 / 3] }, { x: [1 / 3, 2 / 3], y: [1 / 3, 2 / 3] }];
 let commandsCount = 0;
 
+let abort_scroll = false;
+
 document.addEventListener("DOMContentLoaded", () => {
   {
     const buttons = document.querySelectorAll('[data-target]');
@@ -26,13 +28,19 @@ document.addEventListener("DOMContentLoaded", () => {
       requestAnimationFrame(time => smooth_scroll(time, start_time, origin, destination));
       return;
     }
+    if (abort_scroll) {
+      abort_scroll = false;
+      return;
+    }
     scrollTo({
-      top: origin + (destination == 0 ? origin * -1 : destination) * easeInOutCubic((time - start_time) / scroll_duration),
-      behavior: 'smooth'
+      top: origin + (destination == 0 ? origin * -1 : destination) * easeInOutCubic((time - start_time) / scroll_duration)
     });
     if ((time - start_time) > scroll_duration) return;
     requestAnimationFrame(time => smooth_scroll(time, start_time, origin, destination));
   }
+
+  addEventListener('touchstart', () => abort_scroll=true);
+  addEventListener('touchend', () => abort_scroll=false);
 
   addEventListener('keydown', e => {
     if (e.key == command[commandsCount]) {
