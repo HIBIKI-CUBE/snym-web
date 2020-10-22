@@ -117,7 +117,7 @@ header
   color var(--ui-text-color)
   background-color var(--ui-bg)
   vendor(backdrop-filter, blur(10px))
-  z-index 2000
+  z-index 4000
 
 .header_logo
   display inline-block
@@ -140,7 +140,7 @@ header
   position fixed
   top 0
   right 0
-  z-index 4000
+  z-index 6000
   border none
   box-sizing border-box
   height var(--base-size)
@@ -189,7 +189,7 @@ header
 .header_button_svg
   height 60%
   transform translate(0, -2%)
-  z-index 5000
+  z-index 7000
   pointer-events none
   animation-name derotate_svg
   animation-duration 200ms
@@ -203,12 +203,12 @@ header
 .header_navigation
   display flex
   width var(--navigation-width)
-  z-index 3000
+  z-index 5000
   font-size var(--base-size-vw)
   @media screen and (orientation: portrait)
     flex-wrap wrap
     width 100vw
-    z-index 1000
+    z-index 3000
     font-size calc(var(--base-size) / 3)
   position fixed
   top 0
@@ -289,6 +289,7 @@ header
 #dark-over
   position fixed
   top 0
+  z-index 2000
   perspective 800px
   display flex
   width 100vw
@@ -357,6 +358,7 @@ article
     content ''
     width 100vw
     height 50vh
+    z-index 1000
     @media screen and (orientation: landscape)
       height calc(100vh - var(--base-size) - env(safe-area-inset-bottom))
       .isAnimating&
@@ -524,7 +526,7 @@ footer
   0%
     filter hue-rotate(0deg)
   100%
-    filter hue-rotate(360deg)
+    filter hue-rotate(359deg)
 
 @media screen and (orientation: landscape)
   @keyframes hide_dark-over
