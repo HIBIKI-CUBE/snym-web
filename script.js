@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(time => smooth_scroll(time, start_time, origin, destination));
   }
 
-  addEventListener('keydown', (e) => {
+  addEventListener('keydown', e => {
     if (e.key == command[commandsCount]) {
       if (++commandsCount >= command.length) document.getElementById('hero').classList.add('gaming');
     } else commandsCount = 0;
