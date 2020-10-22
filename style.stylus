@@ -278,7 +278,6 @@ header
 #dark-over
   position fixed
   top 0
-  z-index 6000
   perspective 800px
   display flex
   width 100vw
