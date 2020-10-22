@@ -1,6 +1,7 @@
 const scroll_duration = 400; //ms
 
 const command = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+const command_touch = [{ x: [0, 1], y: [0, 1 / 3] }, { x: [0, 1], y: [0, 1 / 3] }, { x: [0, 1], y: [2 / 3, 1] }, { x: [0, 1], y: [2 / 3, 1] }, { x: [0, 1 / 3], y: [0, 1] }, { x: [2 / 3, 1], y: [0, 1] }, { x: [0, 1 / 3], y: [0, 1] }, { x: [2 / 3, 1], y: [0, 1] }, { x: [1 / 3, 2 / 3], y: [1 / 3, 2 / 3] }, { x: [1 / 3, 2 / 3], y: [1 / 3, 2 / 3] }];
 let commandsCount = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -35,6 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   addEventListener('keydown', (e) => {
     if (e.key == command[commandsCount]) {
+      if (++commandsCount >= command.length) document.getElementById('hero').classList.add('gaming');
+    } else commandsCount = 0;
+  });
+
+  document.getElementById("hero").addEventListener('touchstart', e => {
+    const size = document.getElementById("hero").getBoundingClientRect();
+    const x = (e.changedTouches[0].pageX - size.left + pageXOffset) / size.width;
+    const y = (e.changedTouches[0].pageY - size.top + pageYOffset) / size.height;
+    const rect = command_touch[commandsCount];
+    if(rect.x[0]<=x && x<=rect.x[1] && rect.y[0]<=y && y<=rect.y[1]){
       if (++commandsCount >= command.length) document.getElementById('hero').classList.add('gaming');
     } else commandsCount = 0;
   });
