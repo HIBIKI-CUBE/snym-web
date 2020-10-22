@@ -4,7 +4,7 @@
   --base-size 7vh
   --base-size-vw 1.2vw
   --article-width 60vw
-  @media screen and (max-width 750px)
+  @media screen and (orientation: portrait)
     --article-width 85vw
   --navigation-width 70vw
   --font-size-large 2vw
@@ -26,10 +26,6 @@
   --main-bg rgba(255,255,255,1)
   --bg rgba(0,0,0,1)
 
-@media screen and (max-width 750px)
-  :root
-    --base-size 12vw
-
 vendor(prop, args)
   {prop} args
   -webkit-{prop} args
@@ -48,7 +44,7 @@ vendorarg(prop, arg)
 .flex_half-on_pc
   flex 0 0 47.5%
 
-  @media screen and (max-width 750px)
+  @media screen and (orientation: portrait)
     flex 0 0 100%
 
 .flex_half
@@ -58,11 +54,11 @@ vendorarg(prop, arg)
   flex 1
   margin-right calc(var(--article-width) * 0.05)
 
-  @media screen and (max-width 750px)
+  @media screen and (orientation: portrait)
     flex 0 0 100%
 
 .pc-hide
-  @media screen and (min-width 750px)
+  @media screen and (orientation: landscape)
     display none
 
 html,body
@@ -141,11 +137,9 @@ header
 
 .header_button
   margin 0
-  padding 0
   position fixed
   top 0
   right 0
-  padding 0 calc(var(--base-size) / 2 +  env(safe-area-inset-right)) 0
   z-index 4000
   border none
   box-sizing border-box
@@ -154,7 +148,11 @@ header
   align-items center
   justify-content center
   background-color var(--ui-over-bg)
-  @media screen and (min-width: 750px)
+  transition-property padding
+  transition-duration 200ms
+  transition-delay 0ms
+  transition-timing-function ease-out
+  @media screen and (orientation: landscape)
     animation-name fold_button
     animation-duration 200ms
     animation-timing-function ease-out
@@ -172,12 +170,21 @@ header
     border-color transparent
     border-right-color var(--ui-over-bg)
 
-  @media screen and (min-width 750px)
+  @media screen and (orientation: landscape)
     &:hover
       background-color var(--ui-over-bg-hover)
 
     &:hover:before
       border-right-color var(--ui-over-bg-hover)
+
+@css{
+.header_button{
+  padding: 0 max(env(safe-area-inset-right), calc(var(--base-size) / 2)) 0 calc(var(--base-size) / 2);
+}
+#header_button_checkbox:checked ~ .header_button{
+  padding: 0 calc(var(--base-size) / 2) 0;
+}
+}
 
 .header_button_svg
   height 60%
@@ -198,7 +205,7 @@ header
   width var(--navigation-width)
   z-index 3000
   font-size var(--base-size-vw)
-  @media screen and (max-width 750px)
+  @media screen and (orientation: portrait)
     flex-wrap wrap
     width 100vw
     z-index 1000
@@ -216,7 +223,7 @@ header
   display block
   width 100%
   background-color var(--ui-over-bg)
-  @media screen and (max-width 750px)
+  @media screen and (orientation: portrait)
     flex 0 0 50vw
   height var(--base-size)
   line-height var(--base-size)
@@ -226,12 +233,15 @@ header
   text-align center
   color var(--ui-text-color)
 
+  &:last-child
+    padding-right env(safe-area-inset-right)
+
   &:hover
-    @media screen and (min-width 750px)
+    @media screen and (orientation: landscape)
       background-color var(--ui-over-bg-hover)
 
   &+&:before
-    @media screen and (min-width 750px)
+    @media screen and (orientation: landscape)
       content ''
       position absolute
       width 1px
@@ -241,7 +251,7 @@ header
       display block
       background-color var(--ui-text-color)
 
-  @media screen and (max-width 750px)
+  @media screen and (orientation: portrait)
     &+&:nth-child(2):before
       content none
 
@@ -249,7 +259,7 @@ header
   margin 0
   line-height calc(var(--base-size) / 2)
   font-weight normal
-  @media screen and (max-width 750px)
+  @media screen and (orientation: portrait)
     flex 0 0 100vw
     line-height var(--base-size)
 
@@ -267,8 +277,9 @@ header
   animation-delay 0ms
   animation-fill-mode both
 
-@media screen and (min-width: 750px)
-  #header_button_checkbox:checked ~ .header_button
+#header_button_checkbox:checked ~ .header_button
+  transition-delay 150ms
+  @media screen and (orientation: landscape)
     animation-name expand_button
     animation-duration 200ms
     animation-timing-function ease-out
@@ -293,7 +304,7 @@ header
   &.hide_dark-over
     opacity 0
 
-  @media screen and (max-width 750px)
+  @media screen and (orientation: portrait)
     display none
 
 #spotlight
@@ -335,7 +346,7 @@ article
 #hero
   padding 0 15vw
   height 50vh
-  @media screen and (min-width 750px)
+  @media screen and (orientation: landscape)
     height calc(100vh - var(--base-size) - env(safe-area-inset-bottom))
     &.isAnimating
       transition height 2s ease-in-out
@@ -346,7 +357,7 @@ article
     content ''
     width 100vw
     height 50vh
-    @media screen and (min-width 750px)
+    @media screen and (orientation: landscape)
       height calc(100vh - var(--base-size) - env(safe-area-inset-bottom))
       .isAnimating&
         transition height 2s ease-in-out
@@ -388,7 +399,7 @@ article
   .main_member_list:last-child &
     display none
 
-  @media screen and (min-width 750px)
+  @media screen and (orientation: landscape)
     display none
 
 .main_member_avatar
@@ -400,14 +411,14 @@ article
   &.temporary
     background-color var(--ui-bg)
 
-  @media screen and (max-width 750px)
+  @media screen and (orientation: portrait)
     width 15vw
     height 15vw
 
 .main_member_avatar_parent
   width 5vw
   height 5vw
-  @media screen and (max-width 750px)
+  @media screen and (orientation: portrait)
     width 15vw
     height 15vw
 
@@ -418,7 +429,7 @@ article
     width 5vw
     height 5vw
     border-width 1vw
-    @media screen and (max-width 750px)
+    @media screen and (orientation: portrait)
       width 15vw
       height 15vw
       border-width 3vw
@@ -454,7 +465,7 @@ footer
   align-items stretch
   font-size 0.8em
   background-color var(--ui-bg)
-  @media screen and (max-width 750px)
+  @media screen and (orientation: portrait)
     flex-direction column
 
   section
@@ -463,13 +474,13 @@ footer
     align-items center
 
     &:not(:last-child)
-      @media screen and (max-width 750px)
+      @media screen and (orientation: portrait)
         margin-bottom 0.5em
 
-      @media screen and (min-width 750px)
+      @media screen and (orientation: landscape)
         margin-right 1.5em
 
-    @media screen and (min-width 750px)
+    @media screen and (orientation: landscape)
       padding 0.5em
 
       border-bottom solid 1px var(--accent-color)
@@ -498,7 +509,7 @@ footer
         border-right-color var(--accent-color)
 
 .footer_copyright
-  @media screen and (max-width 750px)
+  @media screen and (orientation: portrait)
     justify-content center
 
 @keyframes spotlight-animation
@@ -515,7 +526,7 @@ footer
   100%
     filter hue-rotate(360deg)
 
-@media screen and (min-width: 750px)
+@media screen and (orientation: landscape)
   @keyframes hide_dark-over
     0%
       opacity 1
@@ -558,7 +569,7 @@ footer
     100%
       transform translate(100%, 0%)
 
-@media screen and (max-width: 750px)
+@media screen and (orientation: portrait)
   @keyframes rotate_svg
     0%
       transform rotate(45deg)
