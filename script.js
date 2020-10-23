@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     scrollTo({
-      top: origin + (destination == 0 ? origin * -1 : destination) * easeInOutCubic((time - start_time) / scroll_duration)
+      top: origin + (destination||origin * -1) * easeInOutCubic((time - start_time) / scroll_duration)
     });
     if ((time - start_time) > scroll_duration) return;
     requestAnimationFrame(time => smooth_scroll(time, start_time, origin, destination));
