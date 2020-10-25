@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   addEventListener('keydown', e => {
     if (e.key == command[commandsCount]) {
-      if (++commandsCount >= command.length) {
+      if (++commandsCount == command.length) {
         requestAnimationFrame(gaming);
         document.getElementById('hero').classList.add('gaming');
       }
@@ -65,7 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const y = (e.changedTouches[0].pageY - size.top + pageYOffset) / size.height;
     const rect = command_touch[commandsCount];
     if(rect.x[0]<=x && x<=rect.x[1] && rect.y[0]<=y && y<=rect.y[1]){
-      if (++commandsCount >= command.length) document.getElementById('hero').classList.add('gaming');
+      if (++commandsCount == command.length) {
+        requestAnimationFrame(gaming);
+        document.getElementById('hero').classList.add('gaming');
+      }
     } else commandsCount = 0;
   });
 
