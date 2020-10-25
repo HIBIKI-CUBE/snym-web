@@ -25,6 +25,7 @@
   --main-text-color rgba(255,255,255,1)
   --main-bg rgba(255,255,255,1)
   --bg rgba(0,0,0,1)
+  --gaming-bg hsl(0, 100%, 50%)
 
 vendor(prop, args)
   {prop} args
@@ -368,9 +369,14 @@ article
     display block
     position absolute
     left 0
-    background-color #F00
     mix-blend-mode multiply
-    animation gaming-snym_logo 3s linear infinite
+    // animation gaming-snym_logo 5s linear infinite
+
+@css{
+  #hero.gaming:before{
+    background-color: var(--gaming-bg);
+  }
+}
 
 .main_works_hero_image
   width 100%

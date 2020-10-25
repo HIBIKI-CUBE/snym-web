@@ -44,9 +44,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   addEventListener('keydown', e => {
     if (e.key == command[commandsCount]) {
-      if (++commandsCount >= command.length) document.getElementById('hero').classList.add('gaming');
+      if (++commandsCount >= command.length) {
+        requestAnimationFrame(gaming);
+        document.getElementById('hero').classList.add('gaming');
+      }
     } else commandsCount = 0;
   });
+
+  function gaming(time, lastTime, hue = 0, duration = 3000) {
+    hue += Math.round((360 / duration) * (time - lastTime||time));
+    hue = hue >= 360 ? hue - 360 : hue;
+    document.documentElement.style.setProperty('--gaming-bg', `hsl(${hue}, 100%, 50%)`);
+    lastTime = time;
+    requestAnimationFrame(time => gaming(time, lastTime, hue, duration));
+  }
 
   document.getElementById("hero").addEventListener('touchstart', e => {
     const size = document.getElementById("hero").getBoundingClientRect();
