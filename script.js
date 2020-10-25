@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function gaming(time, lastTime, hue = 0, duration = 3000) {
-    hue += Math.round((360 / duration) * (time - lastTime||time));
+    hue += (360 / duration) * (time - lastTime||time);
     hue = hue >= 360 ? hue - 360 : hue;
-    document.documentElement.style.setProperty('--gaming-bg', `hsl(${hue}, 100%, 50%)`);
+    document.documentElement.style.setProperty('--gaming-bg', `hsl(${Math.round(hue)}, 100%, 50%)`);
     lastTime = time;
     requestAnimationFrame(time => gaming(time, lastTime, hue, duration));
   }
