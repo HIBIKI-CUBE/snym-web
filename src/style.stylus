@@ -468,7 +468,7 @@ footer
   box-sizing border-box
   width 100vw
   display flex
-  padding 2em 10% 2em
+  padding 2em 10% calc(env(safe-area-inset-bottom) + 2em)
   justify-content space-between
   align-items stretch
   font-size 0.8em
