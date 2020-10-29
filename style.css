@@ -9,14 +9,14 @@
   --font-size-small: 2vw;
   --accent-color: #7f5;
   --accent-text-color: #fff;
+  --ui-bg: #646464;
+  --ui-bg-hover: #888;
+  --ui-bg-focus: #888;
   --ui-over-text-color: #000;
   --ui-over-bg: #888;
   --ui-over-bg-hover: #555;
   --ui-text-color: #fff;
   --ui-text-hover-color: #000;
-  --ui-bg: #646464;
-  --ui-bg-hover: #888;
-  --ui-bg-focus: #888;
   --main-text-color: #fff;
   --main-bg: #fff;
   --bg: #000;
@@ -420,25 +420,35 @@ article {
   margin: 1em 0;
   flex-wrap: nowrap;
   position: relative;
+  color: currentColor;
+  text-decoration: none;
+  padding-right: 3em;
 }
 .main_member_id:after {
+  content: url("/img/twitter.svg");
+  display: block;
+  position: absolute;
+  right: 0.1em;
+  bottom: 0.25em;
+  height: 1em;
+  width: 1em;
+}
+.main_member_id:before {
   content: '';
   display: block;
   position: absolute;
   right: 0px;
   bottom: 0px;
   border-style: solid;
-  border-width: 1em 2em 0 1em;
+  border-width: 1.5em 3em 0 1.5em;
   border-color: transparent;
-  border-right-color: var(--accent-color);
+  border-right-color: var(--ui-bg);
+  transition-property: border-color;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in;
 }
-.main_member_list:last-child .main_member_id:after {
-  display: none;
-}
-@media screen and (orientation: landscape) {
-  .main_member_id:after {
-    display: none;
-  }
+.main_member_id:hover:before {
+  border-right-color: #1da1f2;
 }
 .main_member_avatar {
   width: 5vw;

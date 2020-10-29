@@ -12,16 +12,16 @@
   --font-size-small 2vw
   --accent-color #7f5
   --accent-text-color #fff
+  --ui-bg #646464
+  @supports(backdrop-filter blur(10px)) or (-webkit-backdrop-filter blur(10px)) or (-moz-backdrop-filter blur(10px))
+    --ui-bg rgba(200,200,200,0.5)
+  --ui-bg-hover #888
+  --ui-bg-focus #888
   --ui-over-text-color #000
   --ui-over-bg #888
   --ui-over-bg-hover #555
   --ui-text-color #FFF
   --ui-text-hover-color #000
-  --ui-bg #646464
-  --ui-bg-hover #888
-  --ui-bg-focus #888
-  @supports(backdrop-filter blur(10px)) or (-webkit-backdrop-filter blur(10px)) or (-moz-backdrop-filter blur(10px))
-    --ui-bg rgba(200,200,200,0.5)
   --main-text-color rgba(255,255,255,1)
   --main-bg rgba(255,255,255,1)
   --bg rgba(0,0,0,1)
@@ -392,23 +392,35 @@ article
   margin 1em 0
   flex-wrap nowrap
   position relative
+  color currentColor
+  text-decoration none
+  padding-right 3em
 
-.main_member_id:after
-  content ''
-  display block
-  position absolute
-  right 0px
-  bottom 0px
-  border-style solid
-  border-width 1em 2em 0 1em
-  border-color transparent
-  border-right-color var(--accent-color)
+  &:after
+    content url('/img/twitter.svg')
+    display block
+    position absolute
+    right 0.1em
+    bottom 0.25em
+    height 1em
+    width 1em
 
-  .main_member_list:last-child &
-    display none
+  &:before
+    content ''
+    display block
+    position absolute
+    right 0px
+    bottom 0px
+    border-style solid
+    border-width 1.5em 3em 0 1.5em
+    border-color transparent
+    border-right-color var(--ui-bg)
+    transition-property border-color
+    transition-duration 100ms
+    transition-timing-function ease-in
 
-  @media screen and (orientation: landscape)
-    display none
+  &:hover:before
+    border-right-color #1DA1F2
 
 .main_member_avatar
   width 5vw
