@@ -397,7 +397,7 @@ article
   text-decoration none
   padding-right 3em
 
-  &:after
+  &[data-twitter]:after
     content url('/img/twitter.svg')
     display block
     position absolute
@@ -422,6 +422,12 @@ article
 
   &:hover:before
     border-right-color #1DA1F2
+
+  &:not([data-twitter]):before
+    border-right-color var(--ui-bg)
+
+  &:not([data-twitter]):hover:before
+    border-right-color var(--accent-color)
 
 .main_member_avatar
   width 5vw

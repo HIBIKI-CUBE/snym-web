@@ -425,7 +425,7 @@ article {
   text-decoration: none;
   padding-right: 3em;
 }
-.main_member_id:after {
+.main_member_id[data-twitter]:after {
   content: url("/img/twitter.svg");
   display: block;
   position: absolute;
@@ -450,6 +450,12 @@ article {
 }
 .main_member_id:hover:before {
   border-right-color: #1da1f2;
+}
+.main_member_id:not([data-twitter]):before {
+  border-right-color: var(--ui-bg);
+}
+.main_member_id:not([data-twitter]):hover:before {
+  border-right-color: var(--accent-color);
 }
 .main_member_avatar {
   width: 5vw;
