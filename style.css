@@ -418,6 +418,7 @@ article {
   align-items: center;
   justify-content: flex-start;
   margin: 1em 0;
+  box-sizing: border-box;
   flex-wrap: nowrap;
   position: relative;
   color: currentColor;
