@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(time => smooth_scroll(time, start_time, origin, destination));
   }
 
-  addEventListener('touchstart', () => abort_scroll=true);
-  addEventListener('touchend', () => abort_scroll=false);
+  addEventListener('touchstart', () => abort_scroll=true, {passive: true});
+  addEventListener('touchend', () => abort_scroll=false, {passive: true});
 
   addEventListener('keydown', e => {
     if (e.key == command[commandsCount]) {
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('hero').classList.add('gaming');
       }
     } else commandsCount = 0;
-  });
+  }, {passive: true});
 
   function gaming(time, lastTime, hue = 0, duration = 3000) {
     hue += (360 / duration) * (time - lastTime||time);
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('hero').classList.add('gaming');
       }
     } else commandsCount = 0;
-  });
+  }, { passive: true });
 
   setTimeout(() => document.getElementById('header_button_checkbox').checked = false, 2000);
 }, {once: true, passive: true});
