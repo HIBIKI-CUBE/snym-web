@@ -434,6 +434,17 @@ article {
   height: 1em;
   width: 1em;
 }
+.main_member_id:not([data-twitter]):after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0.80213em;
+  height: 0.80213em;
+  background-color: #fff;
+  border-radius: 50%;
+  right: 0.171885em;
+  bottom: 0.171885em;
+}
 .main_member_id:before {
   content: '';
   display: block;
