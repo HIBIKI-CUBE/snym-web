@@ -438,10 +438,12 @@ article {
   content: '';
   display: block;
   position: absolute;
+  box-sizing: border-box;
   width: 0.80213em;
   height: 0.80213em;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 50%;
+  border: solid 1px;
   right: 0.171885em;
   bottom: 0.171885em;
 }
