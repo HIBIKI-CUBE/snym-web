@@ -98,12 +98,12 @@ td
     vertical-align top
     white-space nowrap
 
-  &:first-child:after
-    content ':'
-    margin-left 0.5ch
-
   #info+&:last-child
     white-space nowrap
+
+  time:not([data-notext]):after
+    content ':'
+    margin-left 0.5ch
 
 
 header
