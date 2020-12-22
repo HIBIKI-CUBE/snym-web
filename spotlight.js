@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function cancelAnimation() {
     if (isFirstTime) {
       document.getElementById("spotlight").classList.remove('isAnimating');
+      document.querySelector('#hero picture').classList.remove('isAnimating');
       isFirstTime = false;
       requestAnimationFrame(spotlight);
     }
@@ -26,7 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setTimeout(() => {
     if (!isHidden) {
-      document.getElementById("dark-over").classList.add('hide_dark-over');
+      document.getElementById("dark-over").classList.remove('spotlight-mode');
+      document.getElementById("hero").classList.remove('spotlight-mode');
       setTimeout(() => isHidden = true, 1000);
       setTimeout(() => document.getElementById('hero').classList.add('isMinimized', 'isAnimating'), 500);
       setTimeout(() => {
@@ -34,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         evt.initEvent('scroll', true, true);
         document.body.dispatchEvent(evt);
         document.getElementById('hero').classList.remove('isAnimating');
+        document.querySelector('#hero picture').classList.remove('isAnimating');
       }, 2500);
     }
   }, 5000);
@@ -63,18 +66,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   addEventListener("scroll", () => {
     if (!isHidden) {
-      document.getElementById("dark-over").classList.add('hide_dark-over');
+      document.getElementById("dark-over").classList.remove('spotlight-mode');
+      document.getElementById("hero").classList.remove('spotlight-mode');
       setTimeout(() => isHidden = true, 1000);
     }
   });
 
   document.getElementById('hero').addEventListener('click', e => {
     if (isEnabled) {
-      document.getElementById("dark-over").classList.add('hide_dark-over');
+      document.getElementById("dark-over").classList.remove('spotlight-mode');
+      document.getElementById("hero").classList.remove('spotlight-mode');
       setTimeout(() => isEnabled = false, 1000);
     } else {
       isEnabled = true;
-      document.getElementById("dark-over").classList.remove('hide_dark-over');
+      document.getElementById("dark-over").classList.add('spotlight-mode');
+      document.getElementById("hero").classList.add('spotlight-mode');
     }
     x = e.pageX;
     y = e.pageY;
@@ -90,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
       translateX(${Math.sqrt(Math.pow(pos.x, 2) + Math.pow(pos.y, 2))}px)
       rotateY(${ -10 * Math.sqrt(Math.pow(pos.x / (width / 2), 2) + Math.pow(pos.y / (height / 2), 2))}deg)
       translateZ(50px)`;
+    document.querySelector('#hero picture').style.filter = `drop-shadow(${pos.x / 20}px ${pos.y / 5}px 5px #000)`;
   }
 
 }, {once: true, passive: true});

@@ -119,7 +119,7 @@ header {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   -moz-backdrop-filter: blur(10px);
-  z-index: 4000;
+  z-index: 5000;
 }
 .header_logo {
   display: inline-block;
@@ -142,7 +142,7 @@ header {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 6000;
+  z-index: 7000;
   border: none;
   box-sizing: border-box;
   height: var(--base-size);
@@ -193,7 +193,7 @@ padding: 0 calc(var(--base-size) / 2) 0;
 .header_button_svg {
   height: 60%;
   transform: translate(0, -2%);
-  z-index: 7000;
+  z-index: 8000;
   pointer-events: none;
   animation-name: derotate_svg;
   animation-duration: 200ms;
@@ -207,7 +207,7 @@ padding: 0 calc(var(--base-size) / 2) 0;
 .header_navigation {
   display: flex;
   width: var(--navigation-width);
-  z-index: 5000;
+  z-index: 6000;
   font-size: var(--base-size-vw);
   position: fixed;
   top: 0;
@@ -222,7 +222,7 @@ padding: 0 calc(var(--base-size) / 2) 0;
   .header_navigation {
     flex-wrap: wrap;
     width: 100vw;
-    z-index: 3000;
+    z-index: 4000;
     font-size: calc(var(--base-size) / 3);
   }
 }
@@ -308,7 +308,7 @@ padding: 0 calc(var(--base-size) / 2) 0;
 #dark-over {
   position: fixed;
   top: 0;
-  z-index: 2000;
+  z-index: 3000;
   perspective: 800px;
   display: flex;
   width: 100vw;
@@ -318,11 +318,12 @@ padding: 0 calc(var(--base-size) / 2) 0;
   background: rgba(0,0,0,0.847);
   mix-blend-mode: hard-light;
   pointer-events: none;
+  opacity: 0;
   transition-property: opacity;
   transition-duration: 1s;
 }
-#dark-over.hide_dark-over {
-  opacity: 0;
+#dark-over.spotlight-mode {
+  opacity: 1;
 }
 @media screen and (orientation: portrait) {
   #dark-over {
@@ -366,8 +367,8 @@ article {
   opacity: 1;
 }
 #hero {
-  padding: 0 15vw;
   height: 50vh;
+  z-index: 1000;
 }
 @media screen and (orientation: landscape) {
   #hero {
@@ -380,33 +381,60 @@ article {
     height: calc(70vw / 1703 * 192 * 2);
   }
 }
-#hero.gaming:before {
+#hero:before {
+  content: '';
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: var(--base-size);
+  left: 0;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 1s;
+  background: linear-gradient(0deg, transparent, #333 40%, #333 60%, transparent);
+}
+.spotlight-mode#hero:before {
+  opacity: 1;
+}
+.isMinimized#hero:before {
+  height: calc(70vw / 1703 * 192 * 2);
+}
+#hero.gaming:after {
   content: '';
   width: 100vw;
   height: 50vh;
-  z-index: 1000;
+  z-index: 2000;
   display: block;
   position: absolute;
+  top: var(--base-size);
   left: 0;
   mix-blend-mode: multiply;
+  background-color: var(--gaming-bg);
 }
 @media screen and (orientation: landscape) {
-  #hero.gaming:before {
+  #hero.gaming:after {
     height: calc(100vh - var(--base-size) - env(safe-area-inset-bottom));
   }
-  .isAnimating#hero.gaming:before {
+  .isAnimating#hero.gaming:after {
     transition: height 2s ease-in-out;
   }
-  .isMinimized#hero.gaming:before {
+  .isMinimized#hero.gaming:after {
     height: calc(70vw / 1703 * 192 * 2);
   }
 }
-
-#hero.gaming:before{
-  background-color: var(--gaming-bg);
+#hero picture {
+  filter: drop-shadow(0px 0px 5px #000);
+  will-change: filter;
+  transform: translateZ(0);
+  padding: 0 15vw;
+}
+#hero picture.isAnimating {
+  animation: spotlight-shadow-animation 4s ease-in-out infinite both alternate;
 }
 .main_works_hero_image {
-  width: 100%;
+  width: 70vw;
   height: 100%;
   object-fit: contain;
 }
@@ -598,34 +626,34 @@ footer section {
 @media screen and (orientation: landscape) {
 @-moz-keyframes hide_dark-over {
     0% {
-      opacity: 1;
+      opacity: 0;
     }
     100% {
-      opacity: 0;
+      opacity: 1;
     }
 }
 @-webkit-keyframes hide_dark-over {
     0% {
-      opacity: 1;
+      opacity: 0;
     }
     100% {
-      opacity: 0;
+      opacity: 1;
     }
 }
 @-o-keyframes hide_dark-over {
     0% {
-      opacity: 1;
+      opacity: 0;
     }
     100% {
-      opacity: 0;
+      opacity: 1;
     }
 }
 @keyframes hide_dark-over {
     0% {
-      opacity: 1;
+      opacity: 0;
     }
     100% {
-      opacity: 0;
+      opacity: 1;
     }
 }
 @-moz-keyframes rotate_svg {
@@ -993,6 +1021,50 @@ footer section {
   }
   100% {
     transform: perspective(800px) scaleY(0.9) translateX(calc(50vw - 50%)) rotateY(-10deg) translateZ(50px) translateY(calc(var(--base-size) / 2));
+  }
+}
+@-moz-keyframes spotlight-shadow-animation {
+  0% {
+    filter: drop-shadow(-20px 0px 5px #000);
+  }
+  50% {
+    filter: drop-shadow(0px 0px 5px #000);
+  }
+  100% {
+    filter: drop-shadow(20px 0px 5px #000);
+  }
+}
+@-webkit-keyframes spotlight-shadow-animation {
+  0% {
+    filter: drop-shadow(-20px 0px 5px #000);
+  }
+  50% {
+    filter: drop-shadow(0px 0px 5px #000);
+  }
+  100% {
+    filter: drop-shadow(20px 0px 5px #000);
+  }
+}
+@-o-keyframes spotlight-shadow-animation {
+  0% {
+    filter: drop-shadow(-20px 0px 5px #000);
+  }
+  50% {
+    filter: drop-shadow(0px 0px 5px #000);
+  }
+  100% {
+    filter: drop-shadow(20px 0px 5px #000);
+  }
+}
+@keyframes spotlight-shadow-animation {
+  0% {
+    filter: drop-shadow(-20px 0px 5px #000);
+  }
+  50% {
+    filter: drop-shadow(0px 0px 5px #000);
+  }
+  100% {
+    filter: drop-shadow(20px 0px 5px #000);
   }
 }
 @-moz-keyframes gaming-snym_logo {
