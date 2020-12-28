@@ -369,7 +369,8 @@ article
     opacity 0
     transition-property opacity
     transition-duration 1s
-    background linear-gradient(0deg, transparent, #333 40%, #333 60%, transparent);
+    @media screen and (orientation: landscape)
+      background linear-gradient(0deg, transparent, #333 40%, #333 60%, transparent);
     .spotlight-mode&
       opacity 1
     .isMinimized&
