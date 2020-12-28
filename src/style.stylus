@@ -26,6 +26,8 @@
   --main-bg rgba(255,255,255,1)
   --bg rgba(0,0,0,1)
   --gaming-bg hsl(0, 100%, 50%)
+  --hero-img-width 2000
+  --hero-img-height 371
 
 vendor(prop, args)
   {prop} args
@@ -353,7 +355,7 @@ article
     &.isAnimating
       transition height 2s ease-in-out
     &.isMinimized
-      height calc(70vw / 1703 * 192 * 2)
+      height calc(70vw / var(--hero-img-width) * var(--hero-img-height) * 2)
 
   &:before
     content ''
@@ -371,7 +373,7 @@ article
     .spotlight-mode&
       opacity 1
     .isMinimized&
-      height calc(70vw / 1703 * 192 * 2)
+      height calc(70vw / var(--hero-img-width) * var(--hero-img-height) * 2)
 
   &.gaming:after
     content ''
@@ -383,7 +385,7 @@ article
       .isAnimating&
         transition height 2s ease-in-out
       .isMinimized&
-        height calc(70vw / 1703 * 192 * 2)
+        height calc(70vw / var(--hero-img-width) * var(--hero-img-height) * 2)
     display block
     position absolute
     top var(--base-size)

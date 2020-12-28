@@ -21,6 +21,8 @@
   --main-bg: #fff;
   --bg: #000;
   --gaming-bg: #f00;
+  --hero-img-width: 2000;
+  --hero-img-height: 371;
 }
 @media screen and (orientation: portrait) {
   :root {
@@ -378,7 +380,7 @@ article {
     transition: height 2s ease-in-out;
   }
   #hero.isMinimized {
-    height: calc(70vw / 1703 * 192 * 2);
+    height: calc(70vw / var(--hero-img-width) * var(--hero-img-height) * 2);
   }
 }
 #hero:before {
@@ -399,7 +401,7 @@ article {
   opacity: 1;
 }
 .isMinimized#hero:before {
-  height: calc(70vw / 1703 * 192 * 2);
+  height: calc(70vw / var(--hero-img-width) * var(--hero-img-height) * 2);
 }
 #hero.gaming:after {
   content: '';
@@ -421,7 +423,7 @@ article {
     transition: height 2s ease-in-out;
   }
   .isMinimized#hero.gaming:after {
-    height: calc(70vw / 1703 * 192 * 2);
+    height: calc(70vw / var(--hero-img-width) * var(--hero-img-height) * 2);
   }
 }
 #hero picture {
