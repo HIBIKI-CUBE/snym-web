@@ -528,6 +528,43 @@ article
   margin 0
   margin-bottom .25em
 
+.frame
+  position: relative
+  background-image url(img/snym-frame.png)
+  background-position: top
+  background-size: cover
+  &:before
+    content ''
+    display block
+    padding-top: (732 / 1362 * 100)%
+  .frame-content
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+    margin: auto
+    width: (1213 / 1362 * 100)%
+    height: (584 / 732 * 100)%
+    .title
+      padding-left: 3ch
+      margin: 0
+      height: (110 / 584 * 100)%
+      display: flex
+      align-items: center
+    .content
+      height: (474 / 584 * 100)%
+      display: flex
+      flex-flow: column
+      justify-content: center
+      align-items: center
+      padding:0 2ch
+      p
+        margin: 0
+      *+*
+        margin-top: 1em
+
+
 footer
   margin-top 2em
   box-sizing border-box
