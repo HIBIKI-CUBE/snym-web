@@ -57,9 +57,6 @@ vendorarg(prop, arg)
   flex 1
   margin-right calc(var(--article-width) * 0.05)
 
-  @media screen and (orientation: portrait)
-    flex 0 0 100%
-
 .pc-hide
   @media screen and (orientation: landscape)
     display none
@@ -227,6 +224,8 @@ header
   background-color var(--ui-over-bg)
   @media screen and (orientation: portrait)
     flex 0 0 50vw
+    &:last-child
+      flex 0 0 100vw
   height var(--base-size)
   line-height var(--base-size)
   margin 0
@@ -331,7 +330,6 @@ article
 
 .break-scope
   display inline-block
-  white-space nowrap
 
 .main_works_article_title_ruby
   text-align center
@@ -530,30 +528,46 @@ article
 
 .frame
   position: relative
-  background-image url(img/snym-frame.png)
-  background-position: top
-  background-size: cover
-  &:before
+  margin-top: 4em
+  margin-bottom: 4em
+  filter: drop-shadow(0px 0px 5px white)
+  @media screen and (orientation: portrait)
+    flex 0 0 100%
+  &:before, &:after
     content ''
     display block
-    padding-top: (732 / 1362 * 100)%
-  .frame-content
+    height: 2em
+    width: 100%
     position: absolute
-    top: 0
-    right: 0
-    left: 0
-    bottom: 0
+    background-image: url(img/frame-corner.svg)
+    background-position: top left
+    background-size: 100% 2em
+    background-clip: border-box
+    box-sizing: border-box
+    border: calc(2em * 20 / 171) solid
+    border-image: linear-gradient(to left, transparent 0%, transparent 25%, #00ff3a 25%, #00ff3a 100%);
+    border-image-slice: 1
+    border-width: 0px 0px calc(2em * 20 / 171) calc(2em * 20 / 171)
+  &:before
+    top: -2em
+    transform: rotate(180deg)
+  &:after
+    bottom: -2em
+  .frame-content
     margin: auto
-    width: (1213 / 1362 * 100)%
-    height: (584 / 732 * 100)%
+    width: 100%
+    height: 100%
+    box-sizing border-box
+    border: solid #00ff3a
+    border-width: 0px calc(2em * 20 / 171)
     .title
       padding-left: 3ch
+      font-size: 1.2em
+      line-height: 2em
       margin: 0
-      height: (110 / 584 * 100)%
       display: flex
       align-items: center
     .content
-      height: (474 / 584 * 100)%
       display: flex
       flex-flow: column
       justify-content: center
