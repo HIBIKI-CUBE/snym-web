@@ -596,6 +596,7 @@ footer
     position relative
     display flex
     align-items center
+    flex: 1
 
     &:not(:last-child)
       @media screen and (orientation: portrait)
@@ -633,8 +634,7 @@ footer
         border-right-color var(--accent-color)
 
 .footer_copyright
-  @media screen and (orientation: portrait)
-    justify-content center
+  justify-content center
 
 @keyframes spotlight-animation
   0%
