@@ -44,6 +44,9 @@ vendorarg(prop, arg)
   flex-wrap wrap
   justify-content space-between
 
+  a
+    width: 100%
+
 .flex_half-on_pc
   flex 0 0 47.5%
 
@@ -345,6 +348,103 @@ article
   &.isLoaded
     opacity 1
 
+.main_works_article-sales
+  width: 100%
+
+  .frame-content
+    background-color: #2d2d2d
+    overflow: hidden
+    text-align: center
+
+  .switch_home
+    display: flex
+    padding: 5% 0
+
+  .switch_icon
+    width: 25vw
+    height: 25vw
+    background-color: gray
+    border: solid 0px #2d2d2d
+    border-width: calc(5/256 * 25vw) 0px
+    border-radius: calc(5/256 * 25vw)
+    flex-shrink: 0
+    position: relative
+
+  .switch_icon img
+    width: calc(100% - 10/256 * 25vw)
+    height: calc(100% - 10/256 * 25vw)
+    position: absolute
+    top: calc(5/256 * 25vw)
+    left: calc(5/256 * 25vw)
+    border: none
+
+  .play .switch_icon img
+    animation: calc(28s/60) ease forwards switch_fade
+
+  .switch_icon.active
+    border-width: calc(5/256 * 25vw)
+    animation: .5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate switch_blink
+
+  .switch_icon:before
+    content: ""
+    display: block
+    width: 100%
+    height: 100%
+    box-sizing: border-box
+    border: solid calc(5/256 * 25vw) #2d2d2d
+
+  .switch_icon.new
+    opacity: 0
+
+  .play .switch_icon.new
+    opacity: 0
+    animation: calc(28s/60) ease forwards switch_add, .5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate switch_blink
+
+  .switch_icon.new~.switch_icon
+    transform: translate(calc(-5/256 * 25vw - 25vw), 0px)
+    margin-right: calc(5/256 * 25vw)
+
+  .play .switch_icon.new~.switch_icon
+    transform: translate(calc(-5/256 * 25vw - 25vw), 0px)
+    margin-right: calc(5/256 * 25vw)
+    animation: calc(28s/60) ease forwards switch_slide
+
+@keyframes switch_slide{
+  0%{
+    transform: translate(calc(-5/256 * 25vw - 25vw), 0px);
+  }
+  42.85%, 100%{
+    transform: translate(calc(-5/256 * 0vw - 0vw), 0px);
+  }
+}
+
+@keyframes switch_add{
+  0%, 42.85%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes switch_fade{
+  0%, 71.42%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes switch_blink{
+  from{
+    border-color: #21a1ca;
+  }
+  to{
+    border-color: #8bf8fa;
+  }
+}
+
 #hero
   height 50vh
   z-index 1000
@@ -530,7 +630,7 @@ article
   position: relative
   margin-top: 4em
   margin-bottom: 4em
-  filter: drop-shadow(0px 0px 5px white)
+  // filter: drop-shadow(0px 0px 5px white)
   @media screen and (orientation: portrait)
     flex 0 0 100%
   &:before, &:after
