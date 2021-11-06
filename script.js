@@ -28,6 +28,8 @@ let commandsCount = 0;
 
 let abort_scroll = false;
 
+let switch_home;
+
 document.addEventListener(
   "DOMContentLoaded",
   () => {
@@ -148,12 +150,16 @@ document.addEventListener(
       2000
     );
 
-    let switch_home = document.querySelector(".switch_home");
+    switch_home = document.querySelector(".switch_home");
+    let switch_home_anchor = document.querySelector(".switch_home-anchor");
+    switch_home_anchor.addEventListener("click", () => {
+      switch_home.classList.add("open");
+    });
     let observer = new IntersectionObserver(
       (entries, observer) => {
-        if(entries[0].isIntersecting && entries[0].intersectionRatio > 0.6){
+        if (entries[0].isIntersecting && entries[0].intersectionRatio > 0.6) {
           switch_home.classList.add("play");
-        }else{
+        } else {
           switch_home.classList.remove("play");
         }
       },
@@ -163,3 +169,9 @@ document.addEventListener(
   },
   { once: true, passive: true }
 );
+
+addEventListener("pageshow", () => {
+  switch_home = switch_home || document.querySelector(".switch_home");
+  switch_home.classList.remove("open");
+  console.log(switch_home);
+});

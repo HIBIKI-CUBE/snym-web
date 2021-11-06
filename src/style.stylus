@@ -353,11 +353,11 @@ article
 
   .frame-content
     background-color: #2d2d2d
-    overflow: hidden
     text-align: center
 
   .switch_home
     display: flex
+    overflow-x: scroll
     padding: 5% 0
 
   .switch_icon
@@ -365,56 +365,64 @@ article
     height: 25vw
     background-color: gray
     border: solid 0px #2d2d2d
-    border-width: calc(5/256 * 25vw) 0px
-    border-radius: calc(5/256 * 25vw)
+    border-width: calc(0.02 * 25vw) 0px
+    border-radius: calc(0.02 * 25vw)
     flex-shrink: 0
     position: relative
 
-  .switch_icon img
-    width: calc(100% - 10/256 * 25vw)
-    height: calc(100% - 10/256 * 25vw)
-    position: absolute
-    top: calc(5/256 * 25vw)
-    left: calc(5/256 * 25vw)
-    border: none
+    &:before
+      content: ""
+      display: block
+      width: 100%
+      height: 100%
+      box-sizing: border-box
+      border: solid calc(0.02 * 25vw) #2d2d2d
 
-  .play .switch_icon img
-    animation: calc(28s/60) ease forwards switch_fade
+    &.active
+      border-width: calc(0.02 * 25vw)
+      animation: .5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate switch_blink
 
-  .switch_icon.active
-    border-width: calc(5/256 * 25vw)
-    animation: .5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate switch_blink
+    &.new
+      opacity: 0
 
-  .switch_icon:before
-    content: ""
-    display: block
-    width: 100%
-    height: 100%
-    box-sizing: border-box
-    border: solid calc(5/256 * 25vw) #2d2d2d
+      &~^[1..1]
+        transform: translate(calc(-0.02 * 25vw - 25vw), 0px)
+        margin-right: calc(0.02 * 25vw)
+        ^[0] .play ^[1..2]~^[3..3]
+          transform: translate(calc(-0.02 * 25vw - 25vw), 0px)
+          margin-right: calc(0.02 * 25vw)
+          animation: calc(28s/60) ease forwards switch_slide
 
-  .switch_icon.new
-    opacity: 0
+      ^[0] .play ^[1..2]
+        animation: calc(28s/60) ease forwards switch_add, .5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate switch_blink
 
-  .play .switch_icon.new
-    opacity: 0
-    animation: calc(28s/60) ease forwards switch_add, .5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate switch_blink
+    img
+      width: calc(100% - 0.04 * 25vw)
+      height: calc(100% - 0.04 * 25vw)
+      position: absolute
+      top: calc(0.02 * 25vw)
+      left: calc(0.02 * 25vw)
+      border: none
+      ^[0] .play ^[1..2]:not(.switch_phantom)
+        animation: calc(28s/60) ease forwards switch_fade
 
-  .switch_icon.new~.switch_icon
-    transform: translate(calc(-5/256 * 25vw - 25vw), 0px)
-    margin-right: calc(5/256 * 25vw)
-
-  .play .switch_icon.new~.switch_icon
-    transform: translate(calc(-5/256 * 25vw - 25vw), 0px)
-    margin-right: calc(5/256 * 25vw)
-    animation: calc(28s/60) ease forwards switch_slide
+  .switch_phantom
+    visibility: hidden
+    opacity: 1
+    transform: scale(1)
+    transition: calc(16s/60) ease
+    transition-property: opacity, transform
+    ^[0] .open ^[1..1]
+      visibility: visible
+      opacity: 0.08
+      transform: scale(1.35)
 
 @keyframes switch_slide{
   0%{
-    transform: translate(calc(-5/256 * 25vw - 25vw), 0px);
+    transform: translate(calc(-0.02 * 25vw - 25vw), 0px);
   }
   42.85%, 100%{
-    transform: translate(calc(-5/256 * 0vw - 0vw), 0px);
+    transform: translate(calc(-0.02 * 0vw - 0vw), 0px);
   }
 }
 
