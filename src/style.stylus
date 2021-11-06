@@ -18,7 +18,7 @@
   --ui-bg-hover #888
   --ui-bg-focus #888
   --ui-over-text-color #000
-  --ui-over-bg #888
+  --ui-over-bg #444
   --ui-over-bg-hover #555
   --ui-text-color #FFF
   --ui-text-hover-color #000
