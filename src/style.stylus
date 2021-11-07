@@ -420,7 +420,7 @@ article
 
     &.active
       border-width: calc(0.02 * var(--icon-width))
-      animation: .5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate switch_blink
+      animation: .5s cubic-bezier(.5,0,.8,1) infinite alternate switch_blink
       @media (prefers-color-scheme: light)
         animation-name: switch_blink-light
         box-shadow: 0 calc(0.01 * var(--icon-width)) 1px #ccc
@@ -437,9 +437,9 @@ article
           animation: calc(28s/60) ease forwards switch_slide
 
       ^[0] .play ^[1..2]
-        animation: calc(28s/60) ease forwards switch_add, .5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate switch_blink
+        animation: calc(28s/60) ease forwards switch_add, .5s cubic-bezier(.5,0,.8,1) infinite alternate switch_blink
         @media (prefers-color-scheme: light)
-          animation: calc(28s/60) ease forwards switch_add, .5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate switch_blink-light
+          animation: calc(28s/60) ease forwards switch_add, .5s cubic-bezier(.5,0,.8,1) infinite alternate switch_blink-light
 
     img
       width: calc(100% - 0.04 * var(--icon-width))
