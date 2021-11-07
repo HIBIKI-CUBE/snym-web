@@ -348,12 +348,18 @@ article
   &.isLoaded
     opacity 1
 
+.switch_home-anchor
+  @media (prefers-color-scheme: light)
+    --accent-color: #479932
+
 .main_works_article-sales
   width: 100%
   --icon-width: calc((var(--article-width) - (2em * 20 / 171) * 2) * 256/1280)
 
   .frame-content
     background-color: #2d2d2d
+    @media (prefers-color-scheme: light)
+      background-color: #ebebeb
     text-align: center
     min-height: calc(var(--article-width) / 16 * 9)
     padding: calc(var(--article-width) * 194/1280) 0 0
@@ -365,6 +371,9 @@ article
       width: calc(var(--article-width) * 1220/1280)
       height: calc(var(--article-width) * 1/1280)
       background-color: #fff
+      @media (prefers-color-scheme: light)
+        height: calc(var(--article-width) * 3/1280)
+        background-color: #b5b5b5
       position: absolute
       bottom: calc(var(--article-width) * 72/1280)
       left: calc(var(--article-width) * 30/1280)
@@ -388,8 +397,10 @@ article
   .switch_icon
     width: var(--icon-width)
     height: var(--icon-width)
-    background-color: gray
+    background-color: #888
     border: solid 0px #2d2d2d
+    @media (prefers-color-scheme: light)
+      border-color: #ebebeb
     border-width: calc(0.02 * var(--icon-width)) 0px
     border-radius: calc(0.02 * var(--icon-width))
     flex-shrink: 0
@@ -404,10 +415,15 @@ article
       height: 100%
       box-sizing: border-box
       border: solid calc(0.02 * var(--icon-width)) #2d2d2d
+      @media (prefers-color-scheme: light)
+        border-color: #ebebeb
 
     &.active
       border-width: calc(0.02 * var(--icon-width))
       animation: .5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate switch_blink
+      @media (prefers-color-scheme: light)
+        animation-name: switch_blink-light
+        box-shadow: 0 calc(0.01 * var(--icon-width)) 1px #ccc
 
     &.new
       opacity: 0
@@ -422,6 +438,8 @@ article
 
       ^[0] .play ^[1..2]
         animation: calc(28s/60) ease forwards switch_add, .5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate switch_blink
+        @media (prefers-color-scheme: light)
+          animation: calc(28s/60) ease forwards switch_add, .5s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate switch_blink-light
 
     img
       width: calc(100% - 0.04 * var(--icon-width))
@@ -446,37 +464,46 @@ article
 
 @keyframes switch_slide{
   0%{
-    transform: translate(calc(-0.02 * var(--icon-width) - var(--icon-width)), 0px);
+    transform: translate(calc(-0.02 * var(--icon-width) - var(--icon-width)), 0px)
   }
   42.85%, 100%{
-    transform: translate(calc(-0.02 * 0vw - 0vw), 0px);
+    transform: translate(calc(-0.02 * 0vw - 0vw), 0px)
   }
 }
 
 @keyframes switch_add{
   0%, 42.85%{
-    opacity: 0;
+    opacity: 0
   }
   100%{
-    opacity: 1;
+    opacity: 1
   }
 }
 
 @keyframes switch_fade{
   0%, 71.42%{
-    opacity: 0;
+    opacity: 0
   }
   100%{
-    opacity: 1;
+    opacity: 1
   }
 }
 
 @keyframes switch_blink{
   from{
-    border-color: #21a1ca;
+    border-color: #21a1ca
   }
   to{
-    border-color: #8bf8fa;
+    border-color: #8bf8fa
+  }
+}
+
+@keyframes switch_blink-light{
+  from{
+    border-color: #0aa8ae
+  }
+  to{
+    border-color: #51facf
   }
 }
 
