@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function spotlight() {
-    const pos = { x: x - width/2, y: y - height/2 - pageYOffset};
+    const pos = { x: x - width/2, y: y - height/2 - scrollY};
     document.getElementById("spotlight").style.transform =
       `perspective(800px)
       rotate(${(pos.x < 0 ? 180 : 0) + Math.atan(pos.y / pos.x) * 180 / Math.PI}deg)
