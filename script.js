@@ -28,8 +28,6 @@ let commandsCount = 0;
 
 let abort_scroll = false;
 
-let switch_home;
-
 document.addEventListener(
   "DOMContentLoaded",
   () => {
@@ -150,17 +148,40 @@ document.addEventListener(
       2000
     );
 
-    switch_home = document.querySelector(".switch_home");
+    let switch_home = document.querySelector(".switch_home");
     let switch_home_anchor = document.querySelector(".switch_home-anchor");
+    let switch_home_link = switch_home_anchor.href;
     switch_home_anchor.addEventListener("click", () => {
-      switch_home.classList.add("open");
+      document.body.classList.add("switch_open");
+      setTimeout(() => {
+        document.body.classList.remove("switch_open");
+      }, 2000);
     });
+
+    let capsLockCount = 0;
+
+    document.addEventListener("keydown", (e) => {
+      capsLockCount += e.getModifierState("CapsLock") ? 1 : 0;
+      switch_home_anchor.href =
+        capsLockCount >= 3 && e.code == "CapsLock"
+          ? "javascript:void(0)"
+          : switch_home_link;
+      capsLockCount = e.code != "CapsLock" ? 0 : capsLockCount;
+    });
+
+    document.addEventListener("keyup", (e) => {
+      if (capsLockCount >= 3 && e.code == "CapsLock") {
+        capsLockCount = 0;
+        switch_home_anchor.href = switch_home_link;
+      }
+    });
+
     let observer = new IntersectionObserver(
       (entries, observer) => {
         if (entries[0].isIntersecting && entries[0].intersectionRatio > 0.6) {
-          switch_home.classList.add("play");
+          document.body.classList.add("switch_and_play");
         } else {
-          switch_home.classList.remove("play");
+          document.body.classList.remove("switch_and_play");
         }
       },
       { threshold: [0, 1] }
@@ -171,7 +192,5 @@ document.addEventListener(
 );
 
 addEventListener("pageshow", () => {
-  switch_home = switch_home || document.querySelector(".switch_home");
-  switch_home.classList.remove("open");
-  console.log(switch_home);
+  document.body.classList.remove("switch_open");
 });
