@@ -473,7 +473,7 @@ article
     top: 0
     opacity: 0
     visibility: hidden
-    transition: opacity 1s ease-out calc(16s/60)
+    transition: opacity calc(12s/60) ease-out calc(16s/60)
     .switch_open &
       visibility: visible
       opacity: 1
