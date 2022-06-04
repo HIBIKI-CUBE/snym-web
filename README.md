@@ -1,4 +1,4 @@
 # snym-web
 
 Snymのウェブサイトです。
-https://snymgames.ga
+https://snymgames.com
