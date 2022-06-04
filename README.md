@@ -1,4 +1,4 @@
 # snym-web
 
-Snymのウェブサイトです。
+Snymの旧ウェブサイトです。
 https://snymgames.com
